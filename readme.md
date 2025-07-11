@@ -83,7 +83,7 @@ Giai đoạn 3: Kết nối mentor-mentee, mở mini-courses theo năng lực.
 Chúng tôi luôn chào đón những cộng sự cùng chung tầm nhìn.
 Hãy đóng góp ý tưởng hoặc kết nối cùng chúng tôi tại:
 
-📧 Email: your@email.com
-🌐 Website: https://thinkshift.vn (placeholder)
+📧 Email: stephensouth1307@gmail.com
+🌐 Website: https://thinkshift-vietnam.vercel.app/ (placeholder)
 
 © 2024 ThinkShift Vietnam. Một dự án tạo ra bằng đam mê & trăn trở.
