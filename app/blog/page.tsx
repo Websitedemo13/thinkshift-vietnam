@@ -17,7 +17,7 @@ const blogPosts = [
     author: "Quách Thành Long",
     date: "2024-01-15",
     category: "AI & Technology",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_1.png",
     slug: "ai-co-the-thay-the-developer-khong",
   },
   {
@@ -27,7 +27,7 @@ const blogPosts = [
     author: "Trịnh Nam Thuận",
     date: "2024-01-10",
     category: "Soft Skills",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_2.png",
     slug: "tu-duy-phan-bien-ky-nang-quan-trong-nhat",
   },
   {
@@ -37,7 +37,7 @@ const blogPosts = [
     author: "Quách Thành Long",
     date: "2024-01-05",
     category: "Career Development",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_3.png",
     slug: "nghich-ly-the-he-that-nghiep-co-bang",
   },
   {
@@ -47,7 +47,7 @@ const blogPosts = [
     author: "Trịnh Nam Thuận",
     date: "2023-12-28",
     category: "Learning",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_4.png",
     slug: "hoc-ky-nang-moi-hieu-qua-trong-30-ngay",
   },
   {
@@ -57,7 +57,7 @@ const blogPosts = [
     author: "Quách Thành Long",
     date: "2023-12-20",
     category: "Future of Work",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_5.png",
     slug: "tuong-lai-remote-work-tai-viet-nam",
   },
   {
@@ -67,7 +67,7 @@ const blogPosts = [
     author: "Trịnh Nam Thuận",
     date: "2023-12-15",
     category: "Personal Branding",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/post/post_6.png",
     slug: "xay-dung-personal-brand-thoi-dai-so",
   },
 ]
