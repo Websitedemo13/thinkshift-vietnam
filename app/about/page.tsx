@@ -1,315 +1,322 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Linkedin, Github, Mail, ArrowRight, Sparkles, Users, Heart } from "lucide-react"
+import { Linkedin, Github, Mail, ArrowRight, Users, BrainCog, DatabaseZap, Blocks, SearchX, BrainCircuit } from "lucide-react"
 import Link from "next/link"
+import { useRef } from "react"
+
+// Component cho hiệu ứng chữ chạy lên mượt mà
+const AnimatedText = ({ text, className = "" }: { text: string; className?: string }) => {
+  const words = text.split(" ")
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.04 * i },
+    }),
+  }
+
+  // 👇 SỬA LỖI TẠI ĐÂY 👇
+  // Thêm "as const" vào cuối đối tượng "child"
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  } as const; // <--- THÊM VÀO ĐÂY
+
+  return (
+    <motion.h1
+      className={`font-bold tracking-tighter text-4xl md:text-6xl lg:text-7xl mb-8 leading-tight ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {words.map((word, index) => (
+        <motion.span key={index} variants={child} className="mr-3 inline-block">
+          {word}
+        </motion.span>
+      ))}
+    </motion.h1>
+  )
+}
 
 export default function AboutPage() {
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
+
   return (
-    <div className="pt-16">
-      {/* Section 1: The Spark */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Hero Image with Overlay */}
-        <div className="absolute inset-0">
+    <div className="bg-neutral-950 text-neutral-50 antialiased">
+      {/* Section 1: The Spark - Giao diện mới với Parallax Effect */}
+      <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Lớp ảnh nền với hiệu ứng Parallax */}
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
           <img
-            src="/placeholder.svg?height=800&width=1200"
-            alt="Sinh viên đứng ở ngã ba đường giữa giảng đường cổ kính và thành phố công nghệ hiện đại trong sương mù"
+            // THAY ẢNH CỦA BẠN VÀO ĐÂY!
+            src="/about/image.png"
+            alt="Một nhóm người đang thảo luận sôi nổi trong một không gian làm việc hiện đại, tượng trưng cho sự hợp tác và đổi mới"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          {/* Lớp phủ gradient tinh tế hơn */}
+          <div className="absolute inset-0 bg-black/70" />
+        </motion.div>
+
+        {/* Nội dung nổi bên trên */}
+        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+          <AnimatedText text="Chúng tôi không bắt đầu từ một kế hoạch." />
+          <AnimatedText text="Chúng tôi bắt đầu từ một nghịch lý." className="text-cyan-400" />
         </div>
 
-        {/* Content Overlay */}
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <h1 className="font-bold tracking-tighter text-4xl md:text-6xl lg:text-7xl mb-8 leading-tight">
-              Chúng tôi không bắt đầu từ một kế hoạch.
-              <br />
-              <span className="text-primary">Chúng tôi bắt đầu từ một nghịch lý.</span>
-            </h1>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
+        {/* Chỉ báo cuộn xuống */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
+          transition={{ delay: 2.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white"
         >
-          <div className="flex flex-col items-center">
-            <span className="text-sm mb-2">Cuộn xuống để khám phá</span>
-            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-sm font-light">Khám phá câu chuyện</span>
+            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
               <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                className="w-1 h-3 bg-white rounded-full mt-2"
+                animate={{ y: [0, 16, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, repeatType: "loop" }}
+                className="w-1 h-2 bg-white rounded-full"
               />
             </div>
           </div>
         </motion.div>
       </section>
 
-      {/* Opening Story */}
-      <section className="py-20 px-4 bg-background">
+      {/* Section 2: Opening Story - Bố cục được làm mới */}
+      <section className="py-24 sm:py-32 px-4 bg-neutral-900">
         <div className="container mx-auto max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="prose prose-lg max-w-none"
           >
             <div className="text-center mb-16">
-              <h2 className="font-bold text-3xl md:text-4xl mb-8 leading-tight">
-                Câu chuyện bắt đầu từ một
-                <span className="text-primary"> trăn trở sâu sắc</span>
+              <h2 className="font-bold text-3xl md:text-5xl mb-4 leading-tight">
+                Hành trình bắt đầu từ một <span className="text-cyan-400">nghịch lý</span>
               </h2>
+              <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+                ThinkShift Vietnam ra đời từ trăn trở của chính những người trong cuộc.
+              </p>
             </div>
 
-            <div className="bg-muted/30 p-8 md:p-12 rounded-2xl mb-12">
-              <p className="text-xl leading-relaxed text-foreground mb-6">
-                ThinkShift Vietnam ra đời từ trăn trở của chính những người trong cuộc. Chúng tôi, những sinh viên đang
-                đứng giữa giao lộ của Công nghệ và Kinh doanh, đã chứng kiến một sự thật đau lòng:
+            <div className="bg-neutral-950/50 border border-neutral-800 p-8 md:p-12 rounded-2xl shadow-lg">
+              <p className="text-xl leading-relaxed text-neutral-300 mb-8 text-center">
+                Chúng tôi, những sinh viên đang đứng giữa giao lộ của Công nghệ và Kinh doanh, đã chứng kiến một sự thật
+                đau lòng:
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 my-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-red-600 font-bold text-lg">😔</span>
+                {/* Card 1 - Dùng icon thay emoji */}
+                <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700/80 flex items-start gap-4 transition-all duration-300 hover:border-cyan-400/50 hover:bg-neutral-800">
+                  <div className="w-12 h-12 bg-red-900/50 text-red-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <BrainCircuit className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Bạn bè xung quanh</h4>
-                    <p className="text-muted-foreground">
-                      Cầm trên tay tấm bằng ưu tú nhưng vẫn hoang mang, không biết mình thực sự giỏi gì.
+                    <h4 className="font-semibold text-lg mb-2 text-neutral-100">Sinh viên hoang mang</h4>
+                    <p className="text-neutral-400">
+                      Cầm trên tay tấm bằng ưu tú nhưng không biết mình thực sự giỏi gì, đâu là năng lực lõi.
                     </p>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-orange-600 font-bold text-lg">😤</span>
+                {/* Card 2 */}
+                <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700/80 flex items-start gap-4 transition-all duration-300 hover:border-orange-400/50 hover:bg-neutral-800">
+                  <div className="w-12 h-12 bg-orange-900/50 text-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <SearchX className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Nhà tuyển dụng</h4>
-                    <p className="text-muted-foreground">
-                      Than phiền vì không tìm được nhân sự có "năng lực thực sự", dù CV rất đẹp.
+                    <h4 className="font-semibold text-lg mb-2 text-neutral-100">Nhà tuyển dụng thất vọng</h4>
+                    <p className="text-neutral-400">
+                      Mệt mỏi vì không tìm được nhân sự có "năng lực thực chiến", dù CV trông rất đẹp.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <p className="text-xl leading-relaxed text-foreground">
-                Chúng tôi nhận ra rằng, vấn đề không nằm ở sự lười biếng, mà ở một{" "}
-                <strong className="text-primary">"lỗi hệ thống"</strong> sâu sắc. Dự án này chính là nỗ lực của chúng
-                tôi để tìm ra lời giải.
+              <p className="text-xl leading-relaxed text-neutral-300 text-center mt-8">
+                Vấn đề không nằm ở sự lười biếng, mà ở một <strong className="text-cyan-400 font-medium">"lỗi hệ thống"</strong>.
+                Dự án này là nỗ lực của chúng tôi để tìm ra lời giải.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Section 2: The Founders */}
-      <section className="py-20 px-4 bg-muted/20">
+      {/* Section 3: The Founders - Bố cục độc đáo hơn */}
+      <section className="py-24 sm:py-32 px-4 bg-neutral-950 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="font-bold tracking-tight text-3xl md:text-4xl mb-4">
-              Những người đi tìm
-              <span className="text-primary"> lời giải</span>
+            <h2 className="font-bold tracking-tight text-3xl md:text-5xl mb-4">
+              Những người đi tìm <span className="text-cyan-400">lời giải</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sự kết hợp độc đáo giữa chuyên môn kỹ thuật sâu và hiểu biết về kinh doanh thực tế
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+              Sự kết hợp giữa tư duy hệ thống, kỹ thuật và sự nhạy bén trong kinh doanh.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Founder 1 */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Founder 1 Card */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl shadow-cyan-900/10"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-32 h-32 bg-muted rounded-full mb-6 overflow-hidden">
-                      <img
-                        src="/long.png"
-                        alt="Quách Thành Long"
-                        className="w-full h-full object-cover filter"
-                      />
-                    </div>
-
-                    <h3 className="font-bold text-2xl mb-2">Quách Thành Long</h3>
-                    <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary">
+              <CardContent className="p-8">
+                <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-8">
+                  <div className="w-32 h-32 rounded-full mb-4 sm:mb-0 flex-shrink-0 overflow-hidden ring-2 ring-neutral-700">
+                    <img src="/long.png" alt="Quách Thành Long" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-2xl text-neutral-100">Quách Thành Long</h3>
+                    <Badge variant="secondary" className="mb-3 mt-1 bg-cyan-900/50 text-cyan-300 border-none">
                       Co-founder | Tech & System Architect
                     </Badge>
-                    <p className="text-sm text-muted-foreground mb-4">UEH / VTC Academy</p>
-
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Là người kết nối ý tưởng và sản phẩm, Long chịu trách nhiệm kiến tạo nền tảng công nghệ cho
-                      ThinkShift. Với nền tảng kết hợp độc đáo giữa Khoa học Máy tính và Kinh doanh, Long có góc nhìn đa
-                      chiều để xây dựng một hệ thống không chỉ mạnh về kỹ thuật mà còn giải quyết đúng vấn đề của người
-                      dùng.
+                    <p className="text-neutral-400 leading-relaxed">
+                      Kiến trúc sư hệ thống, người biến những ý tưởng phức tạp thành sản phẩm công nghệ tinh gọn và hiệu quả.
                     </p>
-
-                    <div className="flex space-x-3">
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <Linkedin className="h-4 w-4" />
-                        LinkedIn
+                    <div className="flex space-x-3 mt-4 justify-center sm:justify-start">
+                      <Button size="sm" variant="outline" className="border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:text-white">
+                        <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
                       </Button>
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <Github className="h-4 w-4" />
-                        GitHub
+                      <Button size="sm" variant="outline" className="border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:text-white">
+                        <Github className="h-4 w-4 mr-2" /> GitHub
                       </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </CardContent>
             </motion.div>
 
-            {/* Founder 2 */}
+            {/* Founder 2 Card */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl shadow-cyan-900/10"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-32 h-32 bg-muted rounded-full mb-6 overflow-hidden">
-                      <img
-                        src="/Thuan.png"
-                        alt="Trịnh Nam Thuận"
-                        className="w-full h-full object-cover filter"
-                      />
-                    </div>
-
-                    <h3 className="font-bold text-2xl mb-2">Trịnh Nam Thuận</h3>
-                    <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary">
+              <CardContent className="p-8">
+                <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-8">
+                  <div className="w-32 h-32 rounded-full mb-4 sm:mb-0 flex-shrink-0 overflow-hidden ring-2 ring-neutral-700">
+                    <img src="/Thuan.png" alt="Trịnh Nam Thuận" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-2xl text-neutral-100">Trịnh Nam Thuận</h3>
+                    <Badge variant="secondary" className="mb-3 mt-1 bg-cyan-900/50 text-cyan-300 border-none">
                       Co-founder | Data & Research Lead
                     </Badge>
-                    <p className="text-sm text-muted-foreground mb-4">UEH</p>
-
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Là một nhà phân tích kinh doanh nhạy bén, Thuận có khả năng "kể chuyện" bằng những con số. Anh phụ
-                      trách việc thiết kế hệ thống khảo sát, phân tích dữ liệu để tìm ra những insight đắt giá, và đúc
-                      kết chúng thành các báo cáo có giá trị, soi rọi vào những khoảng tối của thị trường lao động.
+                    <p className="text-neutral-400 leading-relaxed">
+                      Nhà phân tích kinh doanh, người "kể chuyện" bằng dữ liệu và tìm ra sự thật đằng sau những con số.
                     </p>
-
-                    <div className="flex space-x-3">
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <Linkedin className="h-4 w-4" />
-                        LinkedIn
+                    <div className="flex space-x-3 mt-4 justify-center sm:justify-start">
+                      <Button size="sm" variant="outline" className="border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:text-white">
+                        <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
                       </Button>
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <Mail className="h-4 w-4" />
-                        Email
+                      <Button size="sm" variant="outline" className="border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:text-white">
+                        <Mail className="h-4 w-4 mr-2" /> Email
                       </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </CardContent>
             </motion.div>
           </div>
-
-          {/* Team Synergy */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-12"
-          >
-            <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
-              <CardContent className="p-8 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <Heart className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-semibold text-xl mb-4">Sự kết hợp độc đáo</h4>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Sự kết hợp giữa chuyên môn kỹ thuật sâu và hiểu biết về kinh doanh thực tế giúp ThinkShift Vietnam
-                  mang đến những giải pháp vừa khoa học vừa ứng dụng cao, phù hợp với bối cảnh thị trường lao động Việt
-                  Nam.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
       </section>
 
-      {/* Section 3: Our Mission */}
-      <section className="py-20 px-4 bg-background">
+      {/* Section 4: Our Mission - Bố cục so le và dùng icon */}
+      <section className="py-24 sm:py-32 px-4 bg-neutral-900">
         <div className="container mx-auto max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="font-bold tracking-tight text-3xl md:text-4xl mb-4">
-              Chúng tôi tin rằng
-              <span className="text-primary">...</span>
+            <h2 className="font-bold tracking-tight text-3xl md:text-5xl mb-4">
+              Hệ giá trị cốt lõi
             </h2>
+            <p className="text-lg text-neutral-400">Những niềm tin định hình nên ThinkShift.</p>
           </motion.div>
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {[
               {
-                number: "01",
-                title: "Tư duy quan trọng hơn Công cụ",
-                content:
-                  "AI và công nghệ sẽ liên tục thay đổi. Thứ không thể thay thế chính là khả năng tư duy hệ thống, tư duy phản biện và tư duy sáng tạo.",
-                color: "text-blue-600",
-                bg: "bg-blue-50",
+                icon: BrainCog,
+                title: "Tư duy > Công cụ",
+                content: "Công nghệ thay đổi mỗi ngày, nhưng tư duy hệ thống, tư duy phản biện và sáng tạo là bất biến. Chúng tôi tập trung vào việc rèn luyện tư duy.",
+                color: "text-cyan-400",
+                bg: "bg-cyan-900/50",
               },
               {
-                number: "02",
-                title: "Dữ liệu mang lại Sự thật",
-                content:
-                  "Thay vì những lời khuyên sáo rỗng, chúng tôi tin rằng việc đối mặt với dữ liệu thực tế là bước đầu tiên để tạo ra sự thay đổi có ý nghĩa.",
-                color: "text-green-600",
-                bg: "bg-green-50",
+                icon: DatabaseZap,
+                title: "Dữ liệu > Giả định",
+                content: "Thay vì những lời khuyên sáo rỗng, chúng tôi tin rằng việc đối mặt với dữ liệu thực tế là bước đầu tiên để tạo ra sự thay đổi có ý nghĩa.",
+                color: "text-green-400",
+                bg: "bg-green-900/50",
               },
               {
-                number: "03",
-                title: "Hành động tạo ra Năng lực",
-                content:
-                  "Kiến thức chỉ là tiềm năng. Năng lực thực sự được hình thành khi bạn áp dụng kiến thức đó để giải quyết vấn đề. ThinkShift không chỉ cho bạn thấy vấn đề, mà còn thôi thúc bạn hành động.",
-                color: "text-purple-600",
-                bg: "bg-purple-50",
+                icon: Blocks,
+                title: "Hành động > Lý thuyết",
+                content: "Kiến thức chỉ là tiềm năng. Năng lực thực sự được hình thành khi bạn áp dụng nó để giải quyết vấn đề. ThinkShift thôi thúc bạn hành động.",
+                color: "text-purple-400",
+                bg: "bg-purple-900/50",
               },
             ].map((belief, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="flex items-start gap-8"
+                className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
+                  index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                }`}
               >
-                <div className={`w-20 h-20 ${belief.bg} rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <span className={`text-2xl font-bold ${belief.color}`}>{belief.number}</span>
+                <div className={`w-28 h-28 rounded-2xl flex items-center justify-center flex-shrink-0 ${belief.bg}`}>
+                  <belief.icon className={`h-14 w-14 ${belief.color}`} />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-2xl mb-4">{belief.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">{belief.content}</p>
+                <div className={`flex-1 text-center md:text-left ${index % 2 !== 0 ? "md:text-right" : ""}`}>
+                  <h3 className="font-bold text-3xl mb-3 text-neutral-100">{belief.title}</h3>
+                  <p className="text-lg text-neutral-400 leading-relaxed">{belief.content}</p>
                 </div>
               </motion.div>
             ))}
@@ -317,54 +324,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 4: The Invitation */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-primary/10">
-        <div className="container mx-auto max-w-4xl">
+      {/* Section 5: The Invitation - CTA nổi bật với hiệu ứng Glassmorphism */}
+      <section className="relative py-24 sm:py-32 px-4 overflow-hidden">
+        {/* Background Animation */}
+        <div className="absolute inset-0 z-0">
+            <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(0,255,255,0.15),rgba(255,255,255,0))]"></div>
+            <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(0,255,255,0.1),rgba(255,255,255,0))]"></div>
+        </div>
+
+        <div className="container mx-auto max-w-4xl relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 shadow-xl">
-              <CardContent className="p-12 text-center">
+            {/* Glassmorphism Card */}
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
+              <div className="p-8 sm:p-12 text-center">
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                    <Users className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-cyan-400 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.5)]">
+                    <Users className="h-8 w-8 text-neutral-900" />
                   </div>
                 </div>
 
-                <h2 className="font-bold text-3xl md:text-4xl mb-6">
+                <h2 className="font-bold text-3xl md:text-4xl mb-4 text-white">
                   Đây là một cuộc đối thoại.
-                  <br />
-                  <span className="text-primary">Và chúng tôi cần bạn.</span>
+                </h2>
+                <h2 className="font-bold text-3xl md:text-4xl mb-6 text-cyan-400">
+                  Và chúng tôi cần bạn.
                 </h2>
 
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto leading-relaxed">
                   Dự án này sẽ chỉ thực sự có giá trị khi có sự chung tay của cộng đồng. Hãy tham gia bài đánh giá để
-                  đóng góp câu chuyện của bạn, hoặc liên hệ với chúng tôi nếu bạn có ý tưởng muốn hợp tác.
+                  đóng góp câu chuyện của bạn, hoặc liên hệ nếu bạn có ý tưởng hợp tác.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" asChild className="text-lg px-8 py-6">
+                  <Button size="lg" asChild className="text-base font-semibold px-8 py-6 bg-cyan-400 text-neutral-900 hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105">
                     <Link href="/assessment">
-                      <Sparkles className="mr-2 h-5 w-5" />
                       Tham gia Đánh giá
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6 bg-transparent">
+                  <Button size="lg" variant="outline" asChild className="text-base font-semibold px-8 py-6 bg-transparent border-neutral-600 text-neutral-200 hover:bg-neutral-800 hover:text-white transition-all duration-300">
                     <Link href="/contact">Liên hệ Hợp tác</Link>
                   </Button>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-primary/20">
-                  <p className="text-sm text-muted-foreground">
-                    <strong>ThinkShift Vietnam</strong> - Nơi tư duy gặp gỡ hành động
+                <div className="mt-12 pt-8 border-t border-white/10">
+                  <p className="font-bold text-lg text-white">
+                    Think<span className="text-cyan-400">Shift</span> Vietnam
                   </p>
+                  <p className="text-sm text-neutral-400 mt-1">Nơi Tư Duy Gặp Gỡ Hành Động</p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
