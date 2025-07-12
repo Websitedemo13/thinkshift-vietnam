@@ -22,7 +22,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q1",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_1.png",
     timeOfDay: "8:00 Sáng",
     scenarioText: "Bạn nhận được email 'KHẨN' từ sếp, yêu cầu thêm một tính năng thanh toán mới. Bạn làm gì đầu tiên?",
     options: [
@@ -46,7 +46,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q2",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_2.png",
     timeOfDay: "10:30 Sáng",
     scenarioText: "Trong cuộc họp team, có một bug nghiêm trọng cần fix ngay. Ai cũng đang bận, bạn sẽ...",
     options: [
@@ -70,7 +70,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q3",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_3.png",
     timeOfDay: "2:00 Chiều",
     scenarioText:
       "Một bạn Intern hỏi bạn cách giải thích khái niệm 'Technical Debt' cho người không biết code. Bạn chọn cách nào?",
@@ -95,7 +95,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q4",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_4.png",
     timeOfDay: "4:30 Chiều",
     scenarioText: "Client yêu cầu thay đổi một tính năng đã hoàn thành 80%. Deadline chỉ còn 2 ngày. Bạn sẽ...",
     options: [
@@ -119,7 +119,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q5",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_5.png",
     timeOfDay: "6:00 Tối",
     scenarioText: "Về nhà, bạn thấy một framework JavaScript mới đang rất hot trên Twitter. Bạn sẽ...",
     options: [
@@ -143,7 +143,7 @@ export const assessmentQuestions: AssessmentQuestion[] = [
   {
     id: "q6",
     type: "single-choice-image",
-    imageSrc: "/placeholder.svg?height=400&width=600",
+    imageSrc: "/assessment/test_6.png",
     timeOfDay: "8:30 Tối",
     scenarioText: "Trong group chat team, có người share một bài viết về xu hướng AI mới. Bạn sẽ...",
     options: [

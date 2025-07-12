@@ -184,7 +184,7 @@ export function AssessmentForm() {
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                   <img
-                    src={currentQuestion.imageSrc || "/placeholder.svg"}
+                    src={currentQuestion.imageSrc || "/assessment/test_1.png"}
                     alt="Scenario illustration"
                     className="w-full h-80 lg:h-96 object-cover"
                   />

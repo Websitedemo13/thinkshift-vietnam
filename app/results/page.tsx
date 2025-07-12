@@ -646,7 +646,7 @@ export default function ResultsPage() {
   sm:px-8
   sm:text-lg
 ">
-  <Link href="/assessments">
+  <Link href="assessment">
     {/* Short text for mobile, full text for larger screens */}
     <span className="inline sm:hidden">Đánh Giá Ngay</span> {/* Visible on small screens only */}
     <span className="hidden sm:inline">Bắt Đầu Đánh Giá Năng Lực Ngay</span> {/* Visible from 'sm' breakpoint up */}
