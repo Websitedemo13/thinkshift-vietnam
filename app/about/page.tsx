@@ -87,6 +87,16 @@ export default function AboutPage() {
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
           <AnimatedText text="Chúng tôi không bắt đầu từ một kế hoạch." />
           <AnimatedText text="Chúng tôi bắt đầu từ một nghịch lý." className="text-cyan-400" />
+        <motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.6, duration: 1 }}
+  className="mt-6 text-lg md:text-xl lg:text-2xl font-medium text-neutral-300 max-w-3xl mx-auto"
+>
+  <span className="italic text-white">ThinkShift</span> là sự chuyển hóa từ <span className="text-cyan-400 font-semibold">tư duy</span> đến <span className="text-cyan-400 font-semibold">hành động</span>.  
+  Không bắt đầu từ công cụ – mà từ cách ta <span className="underline underline-offset-4 decoration-cyan-400">nhìn nhận thế giới</span>.
+</motion.p>
+
         </div>
 
         {/* Chỉ báo cuộn xuống */}
