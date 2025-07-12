@@ -215,16 +215,16 @@ export default function HomePage() {
 
             <div className="mt-16">
               <Button
-                size="lg"
-                asChild
-                // Adjusted button padding for better mobile fit
-                className="text-base sm:text-lg px-6 py-4 sm:px-10 sm:py-7 rounded-full bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <Link href="/assessment">
-                  Khám phá Năng lực của Bạn Ngay
-                  <ArrowRight className="ml-2 h-5 w-5 sm:ml-3 sm:h-6 sm:w-6" /> {/* Icon size adjustment */}
-                </Link>
-              </Button>
+  size="lg"
+  asChild
+  className="w-full sm:w-auto max-w-full sm:max-w-fit text-base sm:text-lg px-4 py-3 sm:px-10 sm:py-7 rounded-full bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center"
+>
+  <Link href="/assessment" className="flex items-center justify-center">
+    Khám phá Năng lực của Bạn Ngay
+    <ArrowRight className="ml-2 h-5 w-5 sm:ml-3 sm:h-6 sm:w-6" />
+  </Link>
+</Button>
+
             </div>
           </motion.div>
         </div>

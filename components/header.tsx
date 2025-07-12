@@ -20,7 +20,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const pathname = usePathname()
 
@@ -32,9 +32,9 @@ export function Header() {
   }, [])
 
   const handleMouseMove = (event: MouseEvent<HTMLElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setMousePosition({ x: event.clientX - rect.left, y: event.clientY - rect.top });
-  };
+    const rect = event.currentTarget.getBoundingClientRect()
+    setMousePosition({ x: event.clientX - rect.left, y: event.clientY - rect.top })
+  }
 
   const navItems = [
     { href: "/", label: "Trang chủ" },
@@ -50,9 +50,9 @@ export function Header() {
   return (
     <motion.header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out group/header",
+        "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out group/header transition-colors",
         isScrolled
-          ? "shadow-lg bg-[#f6f5f1]/90 dark:bg-gradient-to-br dark:from-[#0f172a]/90 dark:via-[#0c1a2b]/90 dark:to-[#071422]/90 backdrop-blur-xl"
+          ? "shadow-lg bg-white/80 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-950 dark:to-black backdrop-blur-xl"
           : "bg-transparent"
       )}
       initial={{ y: -100, opacity: 0 }}
@@ -63,14 +63,13 @@ export function Header() {
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover/header:opacity-100"
         style={{
-            background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(168, 85, 247, 0.15), transparent 80%)`,
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(168, 85, 247, 0.15), transparent 80%)`,
         }}
         aria-hidden="true"
       />
 
-      {/* THAY ĐỔI: Tăng chiều cao header để cân đối với logo mới */}
       <div className="container mx-auto px-4 h-24 flex items-center justify-between relative">
-        <Link href="/" className="flex items-center gap-4 z-10 group"> {/* Tăng gap */}
+        <Link href="/" className="flex items-center gap-4 z-10 group">
           <motion.div
             whileHover={{ scale: 1.05, rotate: -3 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
@@ -78,17 +77,12 @@ export function Header() {
             <Image
               src="/logo/image.png"
               alt="ThinkShift Vietnam Logo"
-              // THAY ĐỔI 1: Tăng kích thước logo
               width={56}
               height={56}
-              className={cn(
-                "rounded-lg transition-all duration-300",
-                "drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
-              )}
+              className="rounded-lg transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
             />
           </motion.div>
-          {/* THAY ĐỔI 2: Tách màu cho chữ "ThinkShift" */}
-          <span className="font-bold text-2xl hidden sm:inline-block"> {/* Tăng cỡ chữ */}
+          <span className="font-bold text-2xl hidden sm:inline-block">
             <span className={cn("transition-colors duration-300", textColorClass)}>
               Think
             </span>
@@ -103,24 +97,24 @@ export function Header() {
             onMouseLeave={() => setHoveredItem(null)}
           >
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = pathname === item.href
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
                     "relative px-3 py-1.5 transition-colors duration-300 z-10",
-                    isActive ? (isScrolled ? "text-foreground" : "text-white") : textMutedColorClass,
-                    !isActive && hoveredItem === item.href ? (isScrolled ? "text-foreground" : "text-white") : ""
+                    isActive ? textColorClass : textMutedColorClass,
+                    !isActive && hoveredItem === item.href ? textColorClass : ""
                   )}
                   onMouseEnter={() => setHoveredItem(item.href)}
                 >
                   {item.label}
                   {(isActive || hoveredItem === item.href) && (
                     <motion.div
-                      className="absolute inset-0 rounded-full bg-neutral-500/10"
+                      className="absolute inset-0 rounded-full bg-cyan-400/10 dark:bg-cyan-300/10"
                       layoutId="hover-capsule"
-                      transition={{ type: 'spring', stiffness: 150, damping: 20 }}
+                      transition={{ type: "spring", stiffness: 150, damping: 20 }}
                       style={{ zIndex: -1 }}
                     />
                   )}
@@ -131,9 +125,15 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="outline" size="sm" asChild className={cn(
-              !isScrolled && "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white"
-            )}>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className={cn(
+                !isScrolled &&
+                  "bg-cyan-400/10 border-cyan-300/20 text-white hover:bg-cyan-400/20"
+              )}
+            >
               <Link href="/login">Đăng nhập</Link>
             </Button>
             <Button size="sm" asChild className="group/cta">
@@ -147,14 +147,54 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-2 z-10">
-            {/* ... code mobile nav không đổi ... */}
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="hover:bg-accent/10">
+                <Menu className="h-6 w-6 text-cyan-400" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="bg-background text-foreground border-l border-border px-6 pt-10"
+            >
+              <div className="flex flex-col gap-5 text-base font-medium">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "px-3 py-2 rounded-md transition-colors duration-200",
+                      pathname === item.href
+                        ? "text-cyan-400 font-semibold bg-cyan-400/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/10"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-10 pt-6 border-t border-border flex flex-col gap-4">
+                <Button variant="outline" asChild className="w-full">
+                  <Link href="/login">Đăng nhập</Link>
+                </Button>
+                <Button asChild className="w-full">
+                  <Link href="/assessment">
+                    Bắt đầu Đánh giá
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-        
+
         <div
           className={cn(
             "absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-400",
             "transition-opacity duration-500",
-            isScrolled ? "opacity-50 dark:opacity-70" : "opacity-0"
+            isScrolled ? "opacity-[.85] dark:opacity-90" : "opacity-0"
           )}
           aria-hidden="true"
         />
