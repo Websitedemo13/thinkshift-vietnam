@@ -19,7 +19,7 @@ export default function FloatingAI() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     createMessage(
-      "Xin chào 👋! Tôi là ThinkBot – trợ lý tư duy từ ThinkShift Vietnam. Bạn muốn khám phá điều gì hôm nay? 🎓",
+      "Xin chào 👋! Tôi là Thinking Bot – trợ lý tư duy từ ThinkShift Vietnam. Bạn muốn khám phá điều gì hôm nay? 🎓",
       false
     ),
   ]);

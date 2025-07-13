@@ -11,6 +11,18 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "ThinkShift Vietnam - Định vị lại năng lực trong thời đại AI",
+  // Khai báo file manifest để Next.js biết đường dẫn chính xác
+  manifest: '/favicon/site.webmanifest',
+    icons: {
+    // Dành cho tab trình duyệt, bookmarks (ưu tiên file .png chất lượng cao hơn)
+    icon: '/favicon/favicon-32x32.png', 
+
+    // Một số trình duyệt cũ hơn vẫn dùng 'shortcut icon'
+    shortcut: '/favicon/favicon.ico', 
+    
+    // Dành cho khi ghim ra màn hình chính của các thiết bị Apple
+    apple: '/favicon/apple-touch-icon.png',
+  },
   description:
     "Nền tảng nghiên cứu và phát triển sự nghiệp, giúp người trẻ Việt Nam khám phá giá trị không thể thay thế trong thời đại AI.",
   generator: "qQuach Thanh Long ",
