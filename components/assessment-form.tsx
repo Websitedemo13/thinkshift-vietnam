@@ -1,5 +1,5 @@
 "use client"
-
+import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { assessmentQuestions, type QuestionOption } from "@/lib/assessment-questions"
 import { Clock, Sparkles, Brain, MessageCircle, BookOpen, ArrowRight, CheckCircle } from "lucide-react"
 import { useRouter } from "next/navigation"
+
 
 type UserScores = {
   systemThinking: number
@@ -83,7 +84,7 @@ export function AssessmentForm() {
           <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center mx-auto mb-6">
             <Sparkles className="h-12 w-12 text-white" />
           </div>
-          <h1 className="font-bold tracking-tighter text-4xl md:text-5xl mb-6">
+          <h1 className="font-bold tracking-tighter text-4xl md:text-5xl mt-8 mb-6">
             Sẵn sàng cho một ngày làm việc
             <br />
             <span className="text-primary">thử thách?</span>

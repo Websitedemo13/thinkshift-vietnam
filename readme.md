@@ -59,14 +59,10 @@ Edit
 npm run dev
 Truy cập tại: http://localhost:3000
 
-👥 Đội ngũ phát triển
+👥 Nhà Phát triển
 Quách Thành Long – Co-founder | Tech & System Architect
 
 Kiến tạo toàn bộ nền tảng công nghệ, kết hợp nền tảng IT (VTC Academy) và Kinh doanh (UEH).
-
-
-
-Trịnh Nam Thuận – Co-founder | Data & Research Lead
 
 Thiết kế khảo sát, phân tích dữ liệu và kể chuyện bằng con số. Nền tảng UEH.
 
