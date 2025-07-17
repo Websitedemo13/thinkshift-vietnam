@@ -312,7 +312,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 md:py-28 px-4 bg-neutral-950">
+      <section className="py-20 md:py-28 px-4 bg-gradient-to-br from-navy/5 to-blue-accent/5 dark:from-navy/20 dark:to-blue-accent/10">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -320,29 +320,42 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h2 className="font-bold text-3xl md:text-4xl mb-4 text-white">
+            <h2 className="font-bold text-3xl md:text-4xl mb-4 text-foreground">
               Đây là bức tranh chung.
             </h2>
-            <h2 className="font-bold text-3xl md:text-4xl mb-6 text-cyan-400">
+            <h2 className="font-bold text-3xl md:text-4xl mb-6 text-blue-accent">
               Còn câu chuyện của riêng bạn thì sao?
             </h2>
-            <p className="text-lg text-neutral-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
               Những con số này chỉ là khởi đầu. Để hiểu rõ vị trí của bản thân
               trong bức tranh lớn, hãy tham gia bài đánh giá năng lực cá nhân
               của ThinkShift Vietnam.
             </p>
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 asChild
-                className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-full bg-cyan-500 hover:bg-cyan-600 text-neutral-900 shadow-lg shadow-cyan-500/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-full bg-blue-accent hover:bg-blue-accent/90 text-white shadow-lg shadow-blue-accent/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <Link
                   href="/assessment"
                   className="flex items-center justify-center"
                 >
-                  Bắt đầu Hành trình của Bạn
+                  Bắt đầu Đánh giá AI
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-full border-navy/20 text-navy hover:bg-navy/5"
+              >
+                <Link
+                  href="/dashboard"
+                  className="flex items-center justify-center"
+                >
+                  Xem Demo Dashboard
                 </Link>
               </Button>
             </div>
