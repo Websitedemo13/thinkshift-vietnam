@@ -79,12 +79,12 @@ export default function BlogPage() {
           className="mb-16 max-w-3xl mx-auto"
         >
           <div className="relative mb-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 h-5 w-5" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input
               placeholder="Tìm kiếm ý tưởng, chủ đề bạn quan tâm..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 pr-4 py-6 bg-neutral-900 border-neutral-700 text-base text-neutral-200 focus:ring-cyan-500 focus:border-cyan-500 rounded-lg"
+              className="pl-12 pr-4 py-6 bg-card border-border text-base text-foreground focus:ring-blue-accent focus:border-blue-accent rounded-lg"
             />
           </div>
           <div className="flex flex-wrap gap-2 justify-center">
