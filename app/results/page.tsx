@@ -1,16 +1,22 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { 
-  Brain, 
-  Target, 
-  TrendingUp, 
-  BarChart3, 
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Brain,
+  Target,
+  TrendingUp,
+  BarChart3,
   PieChart,
   Download,
   Share2,
@@ -27,11 +33,11 @@ import {
   MapPin,
   Calendar,
   DollarSign,
-  Briefcase
-} from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, BarChart, Bar, PieChart as RechartsPieChart, Pie, Cell } from "recharts"
+  Briefcase,
+  Clock,
+} from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 // Mock AI Analysis Results
 const analysisResults = {
@@ -39,32 +45,41 @@ const analysisResults = {
     name: "Nguyễn Văn An",
     completedAt: "2024-01-15T10:30:00Z",
     assessmentId: "ASS-2024-001",
-    totalScore: 85
+    totalScore: 85,
   },
   careerRecommendations: [
     {
       title: "Full-stack Developer",
       matchPercentage: 92,
-      description: "Khả năng lập trình và tư duy logic xuất sắc, phù hợp với phát triển ứng dụng web toàn diện",
-      pros: ["Tư duy logic tốt", "Khả năng học nhanh", "Thích thử nghiệm công nghệ mới"],
-      cons: ["Cần cải thiện kỹ năng giao tiếp", "Thiếu kinh nghiệm làm việc nhóm"],
+      description:
+        "Khả năng lập trình và tư duy logic xuất sắc, phù hợp với phát triển ứng dụng web toàn diện",
+      pros: [
+        "Tư duy logic tốt",
+        "Khả năng học nhanh",
+        "Thích thử nghiệm công nghệ mới",
+      ],
+      cons: [
+        "Cần cải thiện kỹ năng giao tiếp",
+        "Thiếu kinh nghiệm làm việc nhóm",
+      ],
       averageSalary: "15-30 triệu VNĐ",
       jobDemand: "Rất cao",
       growth: "22%",
       icon: "💻",
-      color: "#1B9CFC"
+      color: "#1B9CFC",
     },
     {
       title: "Data Scientist",
       matchPercentage: 78,
-      description: "Khả năng phân tích và xử lý dữ liệu, phù hợp với xu hướng AI",
+      description:
+        "Khả năng phân tích và xử lý dữ liệu, phù hợp với xu hướng AI",
       pros: ["Tư duy phân tích", "Yêu thích toán học", "Quan tâm đến AI"],
       cons: ["Cần học thêm thống kê", "Thiếu kinh nghiệm với big data"],
       averageSalary: "18-35 triệu VNĐ",
       jobDemand: "Cao",
       growth: "35%",
       icon: "📊",
-      color: "#0A3D62"
+      color: "#0A3D62",
     },
     {
       title: "UI/UX Designer",
@@ -76,8 +91,8 @@ const analysisResults = {
       jobDemand: "Trung bình",
       growth: "18%",
       icon: "🎨",
-      color: "#8e44ad"
-    }
+      color: "#8e44ad",
+    },
   ],
   skillAnalysis: {
     technical: [
@@ -85,101 +100,93 @@ const analysisResults = {
       { skill: "Problem Solving", score: 90, benchmark: 75, trend: "up" },
       { skill: "System Thinking", score: 75, benchmark: 65, trend: "stable" },
       { skill: "Database Concepts", score: 60, benchmark: 70, trend: "down" },
-      { skill: "Web Technologies", score: 80, benchmark: 75, trend: "up" }
+      { skill: "Web Technologies", score: 80, benchmark: 75, trend: "up" },
     ],
     soft: [
       { skill: "Communication", score: 70, benchmark: 80, trend: "stable" },
       { skill: "Teamwork", score: 65, benchmark: 75, trend: "down" },
       { skill: "Leadership", score: 55, benchmark: 60, trend: "stable" },
       { skill: "Time Management", score: 85, benchmark: 70, trend: "up" },
-      { skill: "Learning Agility", score: 95, benchmark: 80, trend: "up" }
-    ]
+      { skill: "Learning Agility", score: 95, benchmark: 80, trend: "up" },
+    ],
   },
   personalityInsights: {
     traits: [
-      { trait: "Analytical Thinking", score: 90, description: "Xuất sắc trong việc phân tích và giải quyết vấn đề phức tạp" },
-      { trait: "Creativity", score: 75, description: "Có khả năng tư duy sáng tạo và đưa ra giải pháp mới" },
-      { trait: "Persistence", score: 85, description: "Kiên trì và không bỏ cuộc khi gặp khó khăn" },
-      { trait: "Collaboration", score: 60, description: "Cần cải thiện kỹ năng làm việc nhóm" },
-      { trait: "Adaptability", score: 80, description: "Thích ứng tốt với thay đổi v�� môi trường mới" }
-    ]
+      {
+        trait: "Analytical Thinking",
+        score: 90,
+        description:
+          "Xuất sắc trong việc phân tích và giải quyết vấn đề phức tạp",
+      },
+      {
+        trait: "Creativity",
+        score: 75,
+        description: "Có khả năng tư duy sáng tạo và đưa ra giải pháp mới",
+      },
+      {
+        trait: "Persistence",
+        score: 85,
+        description: "Kiên trì và không bỏ cuộc khi gặp khó khăn",
+      },
+      {
+        trait: "Collaboration",
+        score: 60,
+        description: "Cần cải thiện kỹ năng làm việc nhóm",
+      },
+      {
+        trait: "Adaptability",
+        score: 80,
+        description: "Thích ứng tốt với thay đổi và môi trường mới",
+      },
+    ],
   },
   learningPath: {
     immediate: [
       "Hoàn thiện JavaScript ES6+ và React.js",
       "Học Node.js và Express framework",
       "Thực hành với Git và GitHub",
-      "Xây dựng portfolio với 3-5 dự án"
+      "Xây dựng portfolio với 3-5 dự án",
     ],
     shortTerm: [
       "Học thiết kế database và SQL",
       "Tìm hiểu về RESTful API",
       "Tham gia các dự án mã nguồn mở",
-      "Cải thiện kỹ năng giao tiếp"
+      "Cải thiện kỹ năng giao tiếp",
     ],
     longTerm: [
       "Học System Design",
       "Tìm hiểu về Cloud Computing",
       "Phát triển kỹ năng leadership",
-      "Xây dựng personal brand"
-    ]
-  },
-  marketInsights: {
-    demandTrend: [
-      { month: "Jan", demand: 85 },
-      { month: "Feb", demand: 88 },
-      { month: "Mar", demand: 92 },
-      { month: "Apr", demand: 89 },
-      { month: "May", demand: 95 },
-      { month: "Jun", demand: 98 }
+      "Xây dựng personal brand",
     ],
-    salaryComparison: [
-      { position: "Junior", salary: 15 },
-      { position: "Mid", salary: 25 },
-      { position: "Senior", salary: 40 },
-      { position: "Lead", salary: 60 }
-    ]
-  }
-}
-
-const pieChartData = [
-  { name: "Technical Skills", value: 78, color: "#1B9CFC" },
-  { name: "Soft Skills", value: 74, color: "#0A3D62" },
-  { name: "Domain Knowledge", value: 65, color: "#8e44ad" },
-  { name: "Experience", value: 45, color: "#e74c3c" }
-]
-
-const radarData = analysisResults.personalityInsights.traits.map(trait => ({
-  trait: trait.trait,
-  score: trait.score,
-  fullMark: 100
-}))
+  },
+};
 
 export default function ResultsPage() {
-  const [activeTab, setActiveTab] = useState("overview")
+  const [activeTab, setActiveTab] = useState("overview");
 
   const getTrendIcon = (trend: string) => {
     switch (trend) {
       case "up":
-        return <ArrowUp className="h-4 w-4 text-green-500" />
+        return <ArrowUp className="h-4 w-4 text-green-500" />;
       case "down":
-        return <ArrowDown className="h-4 w-4 text-red-500" />
+        return <ArrowDown className="h-4 w-4 text-red-500" />;
       default:
-        return <Minus className="h-4 w-4 text-gray-500" />
+        return <Minus className="h-4 w-4 text-gray-500" />;
     }
-  }
+  };
 
   const getScoreColor = (score: number, benchmark: number) => {
-    if (score >= benchmark + 10) return "text-green-600"
-    if (score <= benchmark - 10) return "text-red-600"
-    return "text-yellow-600"
-  }
+    if (score >= benchmark + 10) return "text-green-600";
+    if (score <= benchmark - 10) return "text-red-600";
+    return "text-yellow-600";
+  };
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
@@ -193,11 +200,18 @@ export default function ResultsPage() {
                 Phân tích chi tiết về năng lực và định hướng nghề nghiệp của bạn
               </p>
               <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                <span>Hoàn thành: {new Date(analysisResults.user.completedAt).toLocaleString('vi-VN')}</span>
-                <Badge variant="outline">ID: {analysisResults.user.assessmentId}</Badge>
+                <span>
+                  Hoàn thành:{" "}
+                  {new Date(analysisResults.user.completedAt).toLocaleString(
+                    "vi-VN",
+                  )}
+                </span>
+                <Badge variant="outline">
+                  ID: {analysisResults.user.assessmentId}
+                </Badge>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3">
               <Button variant="outline" size="lg">
                 <Share2 className="mr-2 h-5 w-5" />
@@ -222,7 +236,9 @@ export default function ResultsPage() {
             <CardContent className="p-8">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                 <div className="text-center lg:text-left">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Điểm tổng thể</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">
+                    Điểm tổng thể
+                  </h2>
                   <p className="text-muted-foreground">
                     Dựa trên phân tích toàn diện các kỹ năng và đặc điểm cá nhân
                   </p>
@@ -232,7 +248,9 @@ export default function ResultsPage() {
                     <div className="text-6xl font-bold text-blue-accent mb-2">
                       {analysisResults.user.totalScore}
                     </div>
-                    <div className="text-sm text-muted-foreground">/ 100 điểm</div>
+                    <div className="text-sm text-muted-foreground">
+                      / 100 điểm
+                    </div>
                   </div>
                   <div className="text-center">
                     <Badge variant="default" className="text-lg px-4 py-2 mb-2">
@@ -247,90 +265,121 @@ export default function ResultsPage() {
         </motion.div>
 
         {/* Main Content Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+        <Tabs
+          value={activeTab}
+          onValueChange={setActiveTab}
+          className="space-y-6"
+        >
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="overview">Tổng quan</TabsTrigger>
             <TabsTrigger value="career">Nghề nghiệp</TabsTrigger>
             <TabsTrigger value="skills">Kỹ năng</TabsTrigger>
-            <TabsTrigger value="personality">Tính cách</TabsTrigger>
             <TabsTrigger value="roadmap">Lộ trình</TabsTrigger>
-          </Tabs>
+          </TabsList>
 
           {/* Overview Tab */}
           <TabsContent value="overview" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Skill Distribution */}
+              {/* Key Insights */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <PieChart className="h-5 w-5 text-blue-accent" />
-                    Phân bố Kỹ năng
+                    <Lightbulb className="h-5 w-5 text-blue-accent" />
+                    Insights quan trọng
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="h-80">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <RechartsPieChart>
-                        <Pie
-                          data={pieChartData}
-                          cx="50%"
-                          cy="50%"
-                          innerRadius={60}
-                          outerRadius={120}
-                          paddingAngle={5}
-                          dataKey="value"
-                        >
-                          {pieChartData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
-                          ))}
-                        </Pie>
-                        <Tooltip formatter={(value) => [`${value}%`, "Điểm"]} />
-                      </RechartsPieChart>
-                    </ResponsiveContainer>
+                <CardContent className="space-y-4">
+                  <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-green-600" />
+                      <span className="font-semibold text-green-800 dark:text-green-200">
+                        Điểm mạnh nổi bật
+                      </span>
+                    </div>
+                    <p className="text-sm text-green-700 dark:text-green-300">
+                      Khả năng học hỏi và tư duy logic của bạn xuất sắc (95% và
+                      90%). Đây là nền tảng vững chắc cho nghề lập trình.
+                    </p>
                   </div>
-                  <div className="grid grid-cols-2 gap-3 mt-4">
-                    {pieChartData.map((item, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <div 
-                          className="w-3 h-3 rounded-full" 
-                          style={{ backgroundColor: item.color }}
-                        />
-                        <span className="text-sm">{item.name}</span>
-                      </div>
-                    ))}
+
+                  <div className="p-4 rounded-lg bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <AlertTriangle className="h-5 w-5 text-orange-600" />
+                      <span className="font-semibold text-orange-800 dark:text-orange-200">
+                        Cần cải thiện
+                      </span>
+                    </div>
+                    <p className="text-sm text-orange-700 dark:text-orange-300">
+                      Kỹ năng giao tiếp và làm việc nhóm cần được phát triển để
+                      tối đa hóa tiềm năng nghề nghiệp.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Target className="h-5 w-5 text-blue-600" />
+                      <span className="font-semibold text-blue-800 dark:text-blue-200">
+                        Khuyến nghị
+                      </span>
+                    </div>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">
+                      Tập trung vào Full-stack Development với 92% độ phù hợp.
+                      Thị trường có nhu cầu cao và mức lương hấp dẫn.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Market Demand Trend */}
+              {/* Skills Distribution */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-blue-accent" />
-                    Xu hướng Thị trường
+                    <PieChart className="h-5 w-5 text-blue-accent" />
+                    Điểm kỹ năng trung bình
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="h-80">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={analysisResults.marketInsights.demandTrend}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="month" />
-                        <YAxis />
-                        <Tooltip />
-                        <Line 
-                          type="monotone" 
-                          dataKey="demand" 
-                          stroke="#1B9CFC" 
-                          strokeWidth={3}
-                          dot={{ fill: "#1B9CFC", strokeWidth: 2, r: 6 }}
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
+                <CardContent className="space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium">
+                        Kỹ năng Kỹ thuật
+                      </span>
+                      <span className="text-sm font-bold text-blue-accent">
+                        78%
+                      </span>
+                    </div>
+                    <Progress value={78} className="h-2" />
                   </div>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    Nhu cầu tuyển dụng cho vị trí phù hợp với bạn đang tăng mạnh
-                  </p>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium">Kỹ năng Mềm</span>
+                      <span className="text-sm font-bold text-navy">74%</span>
+                    </div>
+                    <Progress value={74} className="h-2" />
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium">
+                        Kiến thức Chuyên môn
+                      </span>
+                      <span className="text-sm font-bold text-purple-600">
+                        65%
+                      </span>
+                    </div>
+                    <Progress value={65} className="h-2" />
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium">Kinh nghiệm</span>
+                      <span className="text-sm font-bold text-red-600">
+                        45%
+                      </span>
+                    </div>
+                    <Progress value={45} className="h-2" />
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -352,14 +401,20 @@ export default function ResultsPage() {
                         <div className="flex items-center gap-4">
                           <div className="text-4xl">{career.icon}</div>
                           <div>
-                            <CardTitle className="text-2xl">{career.title}</CardTitle>
+                            <CardTitle className="text-2xl">
+                              {career.title}
+                            </CardTitle>
                             <CardDescription className="text-base mt-1">
                               {career.description}
                             </CardDescription>
                           </div>
                         </div>
-                        <Badge 
-                          variant={career.matchPercentage >= 80 ? "default" : "secondary"}
+                        <Badge
+                          variant={
+                            career.matchPercentage >= 80
+                              ? "default"
+                              : "secondary"
+                          }
                           className="text-xl px-4 py-2"
                         >
                           {career.matchPercentage}%
@@ -372,22 +427,34 @@ export default function ResultsPage() {
                         <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
                           <DollarSign className="h-8 w-8 text-green-600" />
                           <div>
-                            <p className="text-sm font-medium text-muted-foreground">Mức lương</p>
-                            <p className="font-semibold text-green-600">{career.averageSalary}</p>
+                            <p className="text-sm font-medium text-muted-foreground">
+                              Mức lương
+                            </p>
+                            <p className="font-semibold text-green-600">
+                              {career.averageSalary}
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
                           <Briefcase className="h-8 w-8 text-blue-600" />
                           <div>
-                            <p className="text-sm font-medium text-muted-foreground">Nhu cầu</p>
-                            <p className="font-semibold text-blue-600">{career.jobDemand}</p>
+                            <p className="text-sm font-medium text-muted-foreground">
+                              Nhu cầu
+                            </p>
+                            <p className="font-semibold text-blue-600">
+                              {career.jobDemand}
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/30">
                           <TrendingUp className="h-8 w-8 text-purple-600" />
                           <div>
-                            <p className="text-sm font-medium text-muted-foreground">Tăng trưởng</p>
-                            <p className="font-semibold text-purple-600">+{career.growth}</p>
+                            <p className="text-sm font-medium text-muted-foreground">
+                              Tăng trưởng
+                            </p>
+                            <p className="font-semibold text-purple-600">
+                              +{career.growth}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -401,7 +468,10 @@ export default function ResultsPage() {
                           </h4>
                           <ul className="space-y-2">
                             {career.pros.map((pro, i) => (
-                              <li key={i} className="flex items-center gap-2 text-sm">
+                              <li
+                                key={i}
+                                className="flex items-center gap-2 text-sm"
+                              >
                                 <div className="w-2 h-2 rounded-full bg-green-500" />
                                 {pro}
                               </li>
@@ -415,7 +485,10 @@ export default function ResultsPage() {
                           </h4>
                           <ul className="space-y-2">
                             {career.cons.map((con, i) => (
-                              <li key={i} className="flex items-center gap-2 text-sm">
+                              <li
+                                key={i}
+                                className="flex items-center gap-2 text-sm"
+                              >
                                 <div className="w-2 h-2 rounded-full bg-orange-500" />
                                 {con}
                               </li>
@@ -453,25 +526,29 @@ export default function ResultsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {analysisResults.skillAnalysis.technical.map((skill, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">{skill.skill}</span>
-                          {getTrendIcon(skill.trend)}
+                  {analysisResults.skillAnalysis.technical.map(
+                    (skill, index) => (
+                      <div key={index} className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">{skill.skill}</span>
+                            {getTrendIcon(skill.trend)}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`font-semibold ${getScoreColor(skill.score, skill.benchmark)}`}
+                            >
+                              {skill.score}%
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              (TB: {skill.benchmark}%)
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className={`font-semibold ${getScoreColor(skill.score, skill.benchmark)}`}>
-                            {skill.score}%
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            (TB: {skill.benchmark}%)
-                          </span>
-                        </div>
+                        <Progress value={skill.score} className="h-2" />
                       </div>
-                      <Progress value={skill.score} className="h-2" />
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </CardContent>
               </Card>
 
@@ -492,7 +569,9 @@ export default function ResultsPage() {
                           {getTrendIcon(skill.trend)}
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className={`font-semibold ${getScoreColor(skill.score, skill.benchmark)}`}>
+                          <span
+                            className={`font-semibold ${getScoreColor(skill.score, skill.benchmark)}`}
+                          >
                             {skill.score}%
                           </span>
                           <span className="text-sm text-muted-foreground">
@@ -506,63 +585,44 @@ export default function ResultsPage() {
                 </CardContent>
               </Card>
             </div>
-          </TabsContent>
 
-          {/* Personality Tab */}
-          <TabsContent value="personality" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Radar Chart */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-blue-accent" />
-                    Biểu đồ Tính cách
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-80">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <RadarChart data={radarData}>
-                        <PolarGrid />
-                        <PolarAngleAxis dataKey="trait" tick={{ fontSize: 12 }} />
-                        <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} />
-                        <Radar
-                          name="Điểm"
-                          dataKey="score"
-                          stroke="#1B9CFC"
-                          fill="#1B9CFC"
-                          fillOpacity={0.3}
-                          strokeWidth={2}
-                        />
-                      </RadarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Personality Insights */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Lightbulb className="h-5 w-5 text-blue-accent" />
-                    Phân tích Tính cách
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {analysisResults.personalityInsights.traits.map((trait, index) => (
-                    <div key={index} className="p-4 rounded-lg border border-border">
+            {/* Personality Insights */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Star className="h-5 w-5 text-blue-accent" />
+                  Phân tích Tính cách
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {analysisResults.personalityInsights.traits.map(
+                  (trait, index) => (
+                    <div
+                      key={index}
+                      className="p-4 rounded-lg border border-border"
+                    >
                       <div className="flex items-center justify-between mb-2">
                         <h4 className="font-semibold">{trait.trait}</h4>
-                        <Badge variant={trait.score >= 80 ? "default" : trait.score >= 60 ? "secondary" : "outline"}>
+                        <Badge
+                          variant={
+                            trait.score >= 80
+                              ? "default"
+                              : trait.score >= 60
+                                ? "secondary"
+                                : "outline"
+                          }
+                        >
                           {trait.score}%
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground">{trait.description}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {trait.description}
+                      </p>
                     </div>
-                  ))}
-                </CardContent>
-              </Card>
-            </div>
+                  ),
+                )}
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* Learning Roadmap Tab */}
@@ -578,12 +638,14 @@ export default function ResultsPage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {analysisResults.learningPath.immediate.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
+                    {analysisResults.learningPath.immediate.map(
+                      (item, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">{item}</span>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </CardContent>
               </Card>
@@ -598,12 +660,14 @@ export default function ResultsPage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {analysisResults.learningPath.shortTerm.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
+                    {analysisResults.learningPath.shortTerm.map(
+                      (item, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">{item}</span>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </CardContent>
               </Card>
@@ -618,44 +682,23 @@ export default function ResultsPage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {analysisResults.learningPath.longTerm.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
+                    {analysisResults.learningPath.longTerm.map(
+                      (item, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">{item}</span>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </CardContent>
               </Card>
             </div>
-
-            {/* Salary Progression */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-blue-accent" />
-                  Dự báo Phát triển Lương
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={analysisResults.marketInsights.salaryComparison}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="position" />
-                      <YAxis label={{ value: 'Triệu VNĐ', angle: -90, position: 'insideLeft' }} />
-                      <Tooltip formatter={(value) => [`${value} triệu VNĐ`, "Lương"]} />
-                      <Bar dataKey="salary" fill="#1B9CFC" radius={[4, 4, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
           </TabsContent>
         </Tabs>
 
         {/* Action Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -682,5 +725,5 @@ export default function ResultsPage() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
