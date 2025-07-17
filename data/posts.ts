@@ -19,7 +19,7 @@ export const blogPosts: Post[] = [
     id: 1,
     title: "Từ Sinh Viên Đến Developer: Roadmap 2024 Cho Bạn Trẻ Việt Nam",
     excerpt:
-      "Bạn muốn trở thành developer nhưng không biết bắt đ���u từ đâu? Đây là lộ trình chi tiết dành riêng cho sinh viên và bạn trẻ Việt Nam, được thiết kế dựa trên nhu cầu thực tế của thị trường.",
+      "Bạn muốn trở thành developer nhưng không biết bắt đầu từ đâu? Đây là lộ trình chi tiết dành riêng cho sinh viên và bạn trẻ Việt Nam, được thiết kế dựa trên nhu cầu thực tế của thị trường.",
     author: "Minh Tuấn - Senior Developer Google Vietnam",
     date: "2024-01-15",
     category: "Career Development",
@@ -64,20 +64,20 @@ export const blogPosts: Post[] = [
 
   {
     id: 2,
-    title: "Tư duy Phản biện: Kỹ năng sinh tồn trong thế kỷ 21",
+    title: "AI Có Thực Sự Đe Dọa Ngành IT? Phân Tích Thật Từ Chuyên Gia",
     excerpt:
-      "Trong một thế giới tràn ngập thông tin, khả năng tư duy phản biện không còn là lợi thế – mà là điều kiện sống còn để làm chủ tri thức và chính mình.",
-    author: "Trịnh Nam Thuận",
+      "ChatGPT viết code, AI tự động hóa testing, Copilot gợi ý thuật toán... Vậy lập trình viên Việt Nam cần làm gì để không bị thay thế? Đây là góc nhìn thực tế từ các chuyên gia hàng đầu.",
+    author: "Dr. Sarah Chen - AI Research Scientist VinAI",
     date: "2024-01-10",
-    category: "Soft Skills",
+    category: "AI & Technology",
     image: "/post/post_2.png",
-    slug: "tu-duy-phan-bien-ky-nang-quan-trong-nhat",
+    slug: "ai-co-de-doa-nganh-it-phan-tich-that",
     content: `
     <p class="mb-4">
       Thế kỷ 21 không thiếu thông tin – nhưng thiếu những người biết suy nghĩ độc lập. Trong một thế giới nơi AI có thể viết hộ bạn một bài luận, mạng xã hội có thể khiến bạn tức giận chỉ sau 10 giây lướt newsfeed, và tin giả lan nhanh hơn cả virus, kỹ năng <strong>tư duy phản biện</strong> không còn là điều "nên có" — mà là <strong>năng lực sống còn</strong>.
     </p>
 
-    <h2 class="text-2xl font-bold mt-8 mb-4">1. Tư duy phản biện là gì? Định nghĩa và hi��u đúng bản chất</h2>
+    <h2 class="text-2xl font-bold mt-8 mb-4">1. Tư duy phản biện là gì? Đ��nh nghĩa và hiểu đúng bản chất</h2>
     <p class="mb-4">
       Theo <em>Foundation for Critical Thinking</em>, tư duy phản biện (critical thinking) là quá trình tư duy có kỷ luật, qua đó con người phân tích, đánh giá, diễn giải và tổng hợp thông tin từ nhiều nguồn để đưa ra phán đoán và quyết định hợp lý. Tư duy phản biện không phải là "chống đối", mà là biết hoài nghi có phương pháp, đặt câu hỏi đúng chỗ, và đưa ra lập luận dựa trên lý trí thay vì cảm xúc.
     </p>
@@ -98,7 +98,7 @@ export const blogPosts: Post[] = [
 
     <!-- ADDITION: CASE STUDY -->
     <p class="mb-4">
-      <strong>Ví dụ điển hình:</strong> Trong một dự án marketing tại một công ty startup, một bạn trẻ đề xuất chạy quảng cáo qua TikTok. Khi bị phản đối vì “không chuyên nghiệp”, bạn đã không phản ứng tức giận mà đưa ra số liệu cụ thể về chi phí, hiệu quả chuyển đổi, và xu hướng tiêu dùng Gen Z. Kết quả: dự án được thông qua và gặt hái thành công. Đây chính là phản biện thực tế – không phải để “thắng”, mà để <em>chứng minh bằng lý lẽ và dữ liệu.</em>
+      <strong>Ví dụ điển hình:</strong> Trong một dự án marketing tại một công ty startup, một bạn trẻ đề xuất chạy quảng cáo qua TikTok. Khi bị phản đối vì “không chuyên nghiệp”, bạn đã không phản ứng t��c giận mà đưa ra số liệu cụ thể về chi phí, hiệu quả chuyển đổi, và xu hướng tiêu dùng Gen Z. Kết quả: dự án được thông qua và gặt hái thành công. Đây chính là phản biện thực tế – không phải để “thắng”, mà để <em>chứng minh bằng lý lẽ và dữ liệu.</em>
     </p>
 
     <h2 class="text-2xl font-bold mt-8 mb-4">4. Tư duy phản biện giúp gì cho bạn trong đời sống cá nhân và công việc?</h2>
@@ -122,7 +122,7 @@ export const blogPosts: Post[] = [
 
     <h2 class="text-2xl font-bold mt-8 mb-4">6. Hướng phát triển: Tư duy phản biện trong giáo dục và công dân số</h2>
     <p class="mb-4">
-      Ở nhiều qu��c gia như Singapore, Phần Lan, Canada, tư duy phản biện đã được tích hợp vào chương trình học từ cấp tiểu học. Việt Nam cũng đang từng bước tiếp cận mô hình này qua các chương trình giáo dục khai phóng tại Fulbright, PACE, và nhiều trường đại học đổi mới.
+      Ở nhiều quốc gia như Singapore, Phần Lan, Canada, tư duy phản biện đã được tích hợp vào chương trình học từ cấp tiểu học. Việt Nam cũng đang từng bước tiếp cận mô hình này qua các chương trình giáo dục khai phóng tại Fulbright, PACE, và nhiều trường đại học đổi mới.
     </p>
     <p class="mb-4">
       Trong tương lai, khi AI ngày càng thông minh và thông tin ngày càng trôi nổi, người có khả năng phân tích sâu, đánh giá đúng và ra quyết định độc lập sẽ là người thực sự làm chủ cuộc chơi — không chỉ là công dân tốt, mà là <strong>công dân tri thức</strong>.
@@ -133,7 +133,7 @@ export const blogPosts: Post[] = [
       Trong một xã hội quá tải thông tin và thiếu hụt tư duy, phản biện chính là la bàn định hướng, là bộ lọc tự nhiên để con người không trở thành nạn nhân của chính công nghệ mình tạo ra. 
     </p>
     <p class="mb-4">
-      Tư duy phản biện không phải để bác bỏ mọi thứ, mà để nhìn rõ bản chất. Không phải để chống đối, mà để xây dựng. Và không chỉ để thắng trong tranh luận, mà để hiểu rõ chính mình và thế giới.
+      Tư duy phản biện không phải để bác bỏ mọi thứ, mà để nhìn rõ bản chất. Không phải để chống đối, mà để xây d���ng. Và không chỉ để thắng trong tranh luận, mà để hiểu rõ chính mình và thế giới.
     </p>
 
     <!-- ADDITION: Expert tone -->
@@ -156,7 +156,7 @@ export const blogPosts: Post[] = [
     content: `
     <p class="mb-4">Một buổi sáng, bạn cầm trên tay tấm bằng tốt nghiệp loại giỏi, bước ra khỏi cổng trường với nụ cười mãn nguyện. Vài tháng sau, bạn... vẫn ở nhà, lướt LinkedIn và thở dài: <em>“Họ tuyển ai thế nhỉ, sao không phải mình?”</em></p>
 
-    <p class="mb-4"><strong>Chào mừng bạn đến với ngh���ch lý của thế hệ ‘thất nghiệp có bằng’</strong> – nơi tấm bằng không còn là vé VIP vào thị trường lao động, và kỹ năng thực chiến mới là 'mật khẩu' để mở cánh cửa sự nghiệp.</p>
+    <p class="mb-4"><strong>Chào mừng bạn đến với nghịch lý của thế hệ ‘thất nghiệp có bằng’</strong> – nơi tấm bằng không còn là vé VIP vào thị trường lao động, và kỹ năng thực chiến mới là 'mật khẩu' để mở cánh cửa sự nghiệp.</p>
 
     <h2 class="text-2xl font-bold mt-8 mb-4">Khi tấm bằng chỉ là điểm xuất phát</h2>
     <p class="mb-4">Ngày xưa, có bằng là khác biệt. Ngày nay, có bằng là mặc định. Điều nhà tuyển dụng muốn thấy không phải là bạn học gì, mà là bạn <em>giải quyết được gì</em>. Khả năng tự học, giao tiếp, teamwork và thích nghi nhanh quan trọng hơn điểm GPA bạn khoe trong CV.</p>
@@ -273,7 +273,7 @@ export const blogPosts: Post[] = [
     <h2 class="text-2xl font-bold mt-8 mb-4">Tư Duy Mới Cho Người Làm Remote: Kỹ Năng Quan Trọng Nhất Là Gì?</h2>
     <ul class="list-disc list-inside space-y-2 pl-4 mb-4">
       <li><strong>1. Tự quản lý:</strong> Không ai nhắc deadline, không có “văn phòng cảnh báo”, bạn phải là người kỷ luật với chính mình.</li>
-      <li><strong>2. Giao tiếp chủ động:</strong> Thay vì đợi hỏi, hãy báo trước. Viết rõ, nói rõ, đừng chờ hiểu nhầm để đ��� lỗi.</li>
+      <li><strong>2. Giao tiếp chủ động:</strong> Thay vì đợi hỏi, hãy báo trước. Viết rõ, nói rõ, đừng chờ hi��u nhầm để đổ lỗi.</li>
       <li><strong>3. Sử dụng công cụ số:</strong> Slack, Notion, Trello, Zoom... là “bàn làm việc mới”. Không thành thạo nghĩa là bạn đang nói chuyện với team bằng... bảng đen và phấn trắng.</li>
       <li><strong>4. Kết nối văn hóa:</strong> Remote không đồng nghĩa với lạnh lùng. Hãy xây dựng sự gắn kết bằng virtual coffee chat, check-in cảm xúc, và meme vui vẻ (vừa đủ).</li>
     </ul>
@@ -282,7 +282,7 @@ export const blogPosts: Post[] = [
     <p class="mb-4">Startup "Xanh Lá", một công ty công nghệ phát triển ứng dụng học ngôn ngữ, đã vận hành remote hoàn toàn từ năm 2020. Nhân viên làm việc từ Huế, Đà Lạt, và cả Hungary. Điều đặc biệt? Họ không có văn phòng. Mọi thứ đều chạy bằng Notion, Google Meet, và... niềm tin.</p>
     <p class="mb-4">CEO chia sẻ: “Quan trọng không phải là giờ làm, mà là kết quả. Nếu bạn viết được tính năng mới lúc 2h sáng ở quán net thì cũng tuyệt thôi — miễn là bug không bay tung toé.”</p>
 
-    <h2 class="text-2xl font-bold mt-8 mb-4">Vậy Tương Lai Nào Cho Remote Work Tại Việt Nam?</h2>
+    <h2 class="text-2xl font-bold mt-8 mb-4">Vậy Tương Lai Nào Cho Remote Work Tại Vi��t Nam?</h2>
     <p class="mb-4">Remote work sẽ không thay thế hoàn toàn văn phòng, nhưng nó sẽ trở thành một phần không thể thiếu trong chiến lược nhân sự hiện đại. Từ hybrid đến remote full-time, linh hoạt là từ khóa. Nhưng linh hoạt không đồng nghĩa với tùy tiện — mà là chủ động thích nghi với mục tiêu công việc, con người và văn hóa.</p>
 
     <p class="mb-4">Nếu bạn là nhân viên: Hãy xem remote như cơ hội để tự chủ và phát triển nhanh hơn. Nếu bạn là quản lý: Hãy học cách đo lường bằng kết quả, không phải bằng ghế nóng. Và nếu bạn là CEO: Có lẽ đã đến lúc KPI quan trọng nhất là: “Liệu công ty bạn có đủ tin cậy để remote hiệu quả chưa?”</p>
@@ -332,7 +332,7 @@ export const blogPosts: Post[] = [
 
     <h2 class="text-2xl font-bold mt-8 mb-4">Thông Điệp Kết: Đừng Chờ Khi Có Thành Tích Mới Bắt Đầu</h2>
     <p class="mb-4"><em>Thành tích không tạo ra thương hiệu cá nhân. Chính thương hiệu cá nhân giúp bạn có thêm thành tích.</em></p>
-    <p class="mb-4">Khi bạn chia sẻ một bài học, lan tỏa một ý tưởng hay đơn giản là thể hiện thái độ sống chuyên nghiệp — bạn đã đang xây dựng thương hiệu. Và mỗi hành động ấy, như giọt nước nhỏ, dần dần tạo nên hồ sâu uy tín.</p>
+    <p class="mb-4">Khi bạn chia sẻ một bài học, lan tỏa một ý tưởng hay đơn giản là thể hiện thái độ sống chuyên nghiệp — bạn đã ��ang xây dựng thương hiệu. Và mỗi hành động ấy, như giọt nước nhỏ, dần dần tạo nên hồ sâu uy tín.</p>
 
     <p class="mb-4"><strong>Vậy nên:</strong> Hãy thôi lo sợ "liệu mình có đủ hay ho để xây dựng thương hiệu?". Hãy bắt đầu từ việc bạn là ai, và bạn muốn được biết đến vì điều gì. Rồi thế giới sẽ đến tìm bạn — chứ không phải ngược lại.</p>
 
