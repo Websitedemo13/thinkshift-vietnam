@@ -81,7 +81,7 @@ export default function BlogPage() {
           <div className="relative mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input
-              placeholder="Tìm kiếm ý tưởng, chủ đề bạn quan tâm..."
+              placeholder="Tìm kiếm ý tưởng, chủ đ��� bạn quan tâm..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-12 pr-4 py-6 bg-card border-border text-base text-foreground focus:ring-blue-accent focus:border-blue-accent rounded-lg"
@@ -227,11 +227,11 @@ export default function BlogPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center py-20 flex flex-col items-center"
               >
-                <Frown className="h-16 w-16 text-neutral-600 mb-4" />
-                <p className="text-neutral-400 text-xl font-semibold">
+                <Frown className="h-16 w-16 text-muted-foreground mb-4" />
+                <p className="text-foreground text-xl font-semibold">
                   Rất tiếc, không tìm thấy bài viết nào.
                 </p>
-                <p className="text-neutral-500">
+                <p className="text-muted-foreground">
                   Hãy thử tìm kiếm với từ khóa hoặc danh mục khác nhé.
                 </p>
               </motion.div>
