@@ -81,7 +81,7 @@ export default function BlogPage() {
           <div className="relative mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input
-              placeholder="Tìm kiếm ý tưởng, chủ đ��� bạn quan tâm..."
+              placeholder="Tìm kiếm ý tưởng, chủ đề bạn quan tâm..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-12 pr-4 py-6 bg-card border-border text-base text-foreground focus:ring-blue-accent focus:border-blue-accent rounded-lg"
@@ -245,25 +245,25 @@ export default function BlogPage() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="relative mt-24 py-20 text-center overflow-hidden rounded-2xl bg-neutral-900 border border-neutral-800"
+          className="relative mt-24 py-20 text-center overflow-hidden rounded-2xl bg-gradient-to-br from-blue-accent/5 to-navy/10 border border-border"
         >
           <div className="absolute inset-0 z-0 opacity-20">
-            <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(0,255,255,0.3),rgba(255,255,255,0))]"></div>
-            <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(0,255,255,0.2),rgba(255,255,255,0))]"></div>
+            <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(27,156,252,0.3),rgba(255,255,255,0))]"></div>
+            <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(10,61,98,0.2),rgba(255,255,255,0))]"></div>
           </div>
           <div className="relative z-10 max-w-2xl mx-auto px-4">
-            <Sparkles className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
-            <h3 className="font-bold text-3xl mb-4 text-white">
-              Trở thành một phần của câu chuyện
+            <Sparkles className="h-12 w-12 text-blue-accent mx-auto mb-4" />
+            <h3 className="font-bold text-3xl mb-4 text-foreground">
+              Trở thành một phần của cộng đồng
             </h3>
-            <p className="text-neutral-300 mb-8 leading-relaxed">
+            <p className="text-muted-foreground mb-8 leading-relaxed">
               Bạn có một góc nhìn, một kinh nghiệm độc đáo muốn lan tỏa?
-              ThinkShift là không gian để câu chuyện của bạn được lắng nghe và
-              trân trọng.
+              ThinkShift Vietnam là không gian để câu chuyện của bạn được lắng
+              nghe và trân trọng.
             </p>
             <Button
               size="lg"
-              className="text-base font-semibold px-8 py-6 bg-cyan-400 text-neutral-900 hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105"
+              className="text-base font-semibold px-8 py-6 bg-blue-accent text-white hover:bg-blue-accent/90 transition-all duration-300 transform hover:scale-105"
             >
               Gửi bài viết của bạn
               <ArrowRight className="ml-2 h-5 w-5" />
