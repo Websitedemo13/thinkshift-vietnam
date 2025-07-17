@@ -57,7 +57,7 @@ export default function HomePage() {
     {
       title: "Lạm phát Bằng cấp",
       description:
-        "Tấm bằng không còn là 'tấm vé vàng'. Giá trị thực sự nằm ở năng lực giải quyết vấn đề, không phải điểm số.",
+        "Tấm bằng kh��ng còn là 'tấm vé vàng'. Giá trị thực sự nằm ở năng lực giải quyết vấn đề, không phải điểm số.",
       image: "/page/post1.png",
       icon: GraduationCap,
     },
@@ -164,7 +164,7 @@ export default function HomePage() {
       </section>
 
       {/* Section Hiệu ứng số liệu */}
-      <section className="py-20 px-4 bg-neutral-900">
+      <section className="py-20 px-4 bg-gray-light dark:bg-navy/20">
         <div className="container mx-auto">
           <motion.div
             variants={containerVariants}
@@ -174,36 +174,36 @@ export default function HomePage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
           >
             <motion.div variants={itemVariants} className="p-4">
-              <h3 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">
+              <h3 className="text-5xl md:text-6xl font-bold text-blue-accent mb-2">
                 <AnimatedCounter value={72} />%
               </h3>
-              <p className="text-neutral-400">
+              <p className="text-muted-foreground">
                 Doanh nghiệp IT cho biết sinh viên thiếu kỹ năng thực chiến.
               </p>
-              <p className="text-xs text-neutral-600 mt-1">
+              <p className="text-xs text-muted-foreground/60 mt-1">
                 (Nguồn: Báo cáo TopDev)
               </p>
             </motion.div>
             <motion.div variants={itemVariants} className="p-4">
-              <h3 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">
+              <h3 className="text-5xl md:text-6xl font-bold text-blue-accent mb-2">
                 <AnimatedCounter value={49} />%
               </h3>
-              <p className="text-neutral-400">
+              <p className="text-muted-foreground">
                 Nhân sự lo lắng công việc sẽ bị AI thay thế trong 5 năm tới.
               </p>
-              <p className="text-xs text-neutral-600 mt-1">
+              <p className="text-xs text-muted-foreground/60 mt-1">
                 (Nguồn: Báo cáo PwC)
               </p>
             </motion.div>
             <motion.div variants={itemVariants} className="p-4">
-              <h3 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">
+              <h3 className="text-5xl md:text-6xl font-bold text-blue-accent mb-2">
                 <AnimatedCounter value={87} />%
               </h3>
-              <p className="text-neutral-400">
+              <p className="text-muted-foreground">
                 Nhà lãnh đạo tin thành công phụ thuộc vào khả năng thích ứng của
                 nhân viên.
               </p>
-              <p className="text-xs text-neutral-600 mt-1">
+              <p className="text-xs text-muted-foreground/60 mt-1">
                 (Nguồn: Báo cáo Deloitte)
               </p>
             </motion.div>
