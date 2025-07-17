@@ -16,16 +16,16 @@ export type Post = {
 // 'export' để các file khác có thể sử dụng mảng này
 export const blogPosts: Post[] = [
   {
-  id: 1,
-  title: "AI Có Thật Sự 'Thay Thế' Lập Trình Viên? Giải Mã Tương Lai Ngành IT",
-  excerpt:
-    "Sự trỗi dậy của AI khiến không ít lập trình viên lo lắng về tương lai của nghề. Nhưng liệu AI thực sự thay thế con người, hay là cơ hội để ngành IT tiến hóa vượt bậc?",
-  author: "Quách Thành Long",
-  date: "2024-01-15",
-  category: "AI & Technology",
-  image: "/post/post_1.png",
-  slug: "ai-co-the-thay-the-developer-khong",
-  content: `
+    id: 1,
+    title: "Từ Sinh Viên Đến Developer: Roadmap 2024 Cho Bạn Trẻ Việt Nam",
+    excerpt:
+      "Bạn muốn trở thành developer nhưng không biết bắt đ���u từ đâu? Đây là lộ trình chi tiết dành riêng cho sinh viên và bạn trẻ Việt Nam, được thiết kế dựa trên nhu cầu thực tế của thị trường.",
+    author: "Minh Tuấn - Senior Developer Google Vietnam",
+    date: "2024-01-15",
+    category: "Career Development",
+    image: "/post/post_1.png",
+    slug: "tu-sinh-vien-den-developer-roadmap-2024",
+    content: `
     <p class="mb-4">Trong những buổi cà phê công nghệ gần đây, tôi nghe đi nghe lại một câu hỏi: <strong>"AI có đang cướp việc của lập trình viên không?"</strong> Câu hỏi tưởng đơn giản, nhưng ẩn chứa phía sau là hàng loạt mối lo ngại, cả về nghề nghiệp, lẫn về giá trị cá nhân trong thời đại máy móc ngày càng thông minh.</p>
 
     <p class="mb-4">Không thể phủ nhận, AI đang thay đổi cách chúng ta viết code. Từ GitHub Copilot, ChatGPT cho đến CodeWhisperer – những công cụ này không chỉ giúp gợi ý mã nguồn, mà đôi khi còn viết thay ta cả một đoạn chức năng. Nhưng điều đó không có nghĩa là AI sẽ thay thế chúng ta. Vấn đề không nằm ở việc “AI có thể làm gì?”, mà là “chúng ta có đang dừng lại ở đâu?”.</p>
@@ -59,24 +59,25 @@ export const blogPosts: Post[] = [
     <p class="mb-4">Lập trình viên không biến mất. Họ chỉ tiến hóa. Từ người viết từng dòng mã bằng tay, trở thành người dẫn dắt, kết nối, thiết kế và điều phối hệ thống — trong đó có cả AI. Tương lai không phải là “người vs máy”, mà là “người + máy”.</p>
     <p class="mb-4">Bạn không cần giỏi nhất để tồn tại — nhưng bạn cần học nhanh nhất. Hãy cập nhật, hãy mở lòng, hãy đặt câu hỏi. Và nhớ rằng: bạn không cô đơn trong hành trình này.</p>
     <p>Vì vậy, câu hỏi cuối cùng không còn là "AI có thay bạn không?", mà là: <strong>"Bạn đã sẵn sàng để làm chủ AI chưa?"</strong></p>
-  `
-},
+  `,
+  },
 
   {
-  id: 2,
-  title: "Tư duy Phản biện: Kỹ năng sinh tồn trong thế kỷ 21",
-  excerpt: "Trong một thế giới tràn ngập thông tin, khả năng tư duy phản biện không còn là lợi thế – mà là điều kiện sống còn để làm chủ tri thức và chính mình.",
-  author: "Trịnh Nam Thuận",
-  date: "2024-01-10",
-  category: "Soft Skills",
-  image: "/post/post_2.png",
-  slug: "tu-duy-phan-bien-ky-nang-quan-trong-nhat",
-  content: `
+    id: 2,
+    title: "Tư duy Phản biện: Kỹ năng sinh tồn trong thế kỷ 21",
+    excerpt:
+      "Trong một thế giới tràn ngập thông tin, khả năng tư duy phản biện không còn là lợi thế – mà là điều kiện sống còn để làm chủ tri thức và chính mình.",
+    author: "Trịnh Nam Thuận",
+    date: "2024-01-10",
+    category: "Soft Skills",
+    image: "/post/post_2.png",
+    slug: "tu-duy-phan-bien-ky-nang-quan-trong-nhat",
+    content: `
     <p class="mb-4">
       Thế kỷ 21 không thiếu thông tin – nhưng thiếu những người biết suy nghĩ độc lập. Trong một thế giới nơi AI có thể viết hộ bạn một bài luận, mạng xã hội có thể khiến bạn tức giận chỉ sau 10 giây lướt newsfeed, và tin giả lan nhanh hơn cả virus, kỹ năng <strong>tư duy phản biện</strong> không còn là điều "nên có" — mà là <strong>năng lực sống còn</strong>.
     </p>
 
-    <h2 class="text-2xl font-bold mt-8 mb-4">1. Tư duy phản biện là gì? Định nghĩa và hiểu đúng bản chất</h2>
+    <h2 class="text-2xl font-bold mt-8 mb-4">1. Tư duy phản biện là gì? Định nghĩa và hi��u đúng bản chất</h2>
     <p class="mb-4">
       Theo <em>Foundation for Critical Thinking</em>, tư duy phản biện (critical thinking) là quá trình tư duy có kỷ luật, qua đó con người phân tích, đánh giá, diễn giải và tổng hợp thông tin từ nhiều nguồn để đưa ra phán đoán và quyết định hợp lý. Tư duy phản biện không phải là "chống đối", mà là biết hoài nghi có phương pháp, đặt câu hỏi đúng chỗ, và đưa ra lập luận dựa trên lý trí thay vì cảm xúc.
     </p>
@@ -121,7 +122,7 @@ export const blogPosts: Post[] = [
 
     <h2 class="text-2xl font-bold mt-8 mb-4">6. Hướng phát triển: Tư duy phản biện trong giáo dục và công dân số</h2>
     <p class="mb-4">
-      Ở nhiều quốc gia như Singapore, Phần Lan, Canada, tư duy phản biện đã được tích hợp vào chương trình học từ cấp tiểu học. Việt Nam cũng đang từng bước tiếp cận mô hình này qua các chương trình giáo dục khai phóng tại Fulbright, PACE, và nhiều trường đại học đổi mới.
+      Ở nhiều qu��c gia như Singapore, Phần Lan, Canada, tư duy phản biện đã được tích hợp vào chương trình học từ cấp tiểu học. Việt Nam cũng đang từng bước tiếp cận mô hình này qua các chương trình giáo dục khai phóng tại Fulbright, PACE, và nhiều trường đại học đổi mới.
     </p>
     <p class="mb-4">
       Trong tương lai, khi AI ngày càng thông minh và thông tin ngày càng trôi nổi, người có khả năng phân tích sâu, đánh giá đúng và ra quyết định độc lập sẽ là người thực sự làm chủ cuộc chơi — không chỉ là công dân tốt, mà là <strong>công dân tri thức</strong>.
@@ -139,23 +140,23 @@ export const blogPosts: Post[] = [
     <p class="mt-6 italic text-gray-600">
       🔍 Tư duy phản biện là một hình thức cao nhất của lòng tôn trọng — với chính mình, với sự thật, và với người khác. Trong kỷ nguyên mà “đúng” hay “sai” có thể được tạo ra chỉ bằng vài dòng mã, thì <strong>khả năng phản biện chính là chiếc khiên bảo vệ trí tuệ</strong> của bạn.
     </p>
-  `
-},
+  `,
+  },
 
   {
-  id: 3,
-  title: "Nghịch Lý Của Thế Hệ 'Thất Nghiệp Có Bằng'",
-  excerpt:
-    "Tấm bằng đại học từng được xem là 'tấm hộ chiếu' vào đời. Thế nhưng, ngày càng nhiều bạn trẻ sở hữu nó... để rồi vẫn thất nghiệp. Lỗi tại ai? Tại bằng? Hay tại chính cách chúng ta kỳ vọng vào nó?",
-  author: "Quách Thành Long",
-  date: "2024-01-05",
-  category: "Career Development",
-  image: "/post/post_3.png",
-  slug: "nghich-ly-the-he-that-nghiep-co-bang",
-  content: `
+    id: 3,
+    title: "Nghịch Lý Của Thế Hệ 'Thất Nghiệp Có Bằng'",
+    excerpt:
+      "Tấm bằng đại học từng được xem là 'tấm hộ chiếu' vào đời. Thế nhưng, ngày càng nhiều bạn trẻ sở hữu nó... để rồi vẫn thất nghiệp. Lỗi tại ai? Tại bằng? Hay tại chính cách chúng ta kỳ vọng vào nó?",
+    author: "Quách Thành Long",
+    date: "2024-01-05",
+    category: "Career Development",
+    image: "/post/post_3.png",
+    slug: "nghich-ly-the-he-that-nghiep-co-bang",
+    content: `
     <p class="mb-4">Một buổi sáng, bạn cầm trên tay tấm bằng tốt nghiệp loại giỏi, bước ra khỏi cổng trường với nụ cười mãn nguyện. Vài tháng sau, bạn... vẫn ở nhà, lướt LinkedIn và thở dài: <em>“Họ tuyển ai thế nhỉ, sao không phải mình?”</em></p>
 
-    <p class="mb-4"><strong>Chào mừng bạn đến với nghịch lý của thế hệ ‘thất nghiệp có bằng’</strong> – nơi tấm bằng không còn là vé VIP vào thị trường lao động, và kỹ năng thực chiến mới là 'mật khẩu' để mở cánh cửa sự nghiệp.</p>
+    <p class="mb-4"><strong>Chào mừng bạn đến với ngh���ch lý của thế hệ ‘thất nghiệp có bằng’</strong> – nơi tấm bằng không còn là vé VIP vào thị trường lao động, và kỹ năng thực chiến mới là 'mật khẩu' để mở cánh cửa sự nghiệp.</p>
 
     <h2 class="text-2xl font-bold mt-8 mb-4">Khi tấm bằng chỉ là điểm xuất phát</h2>
     <p class="mb-4">Ngày xưa, có bằng là khác biệt. Ngày nay, có bằng là mặc định. Điều nhà tuyển dụng muốn thấy không phải là bạn học gì, mà là bạn <em>giải quyết được gì</em>. Khả năng tự học, giao tiếp, teamwork và thích nghi nhanh quan trọng hơn điểm GPA bạn khoe trong CV.</p>
@@ -192,19 +193,19 @@ export const blogPosts: Post[] = [
     <p class="mb-4">Bằng cấp không xấu, nhưng nếu xem đó là vũ khí duy nhất để bước vào đời, thì bạn đang mang dao găm đến một trận chiến bằng súng. Đừng dừng lại ở việc có bằng – hãy bắt đầu từ việc biết <strong>dùng mình để giải quyết vấn đề</strong>.</p>
     <p class="mb-4 italic text-gray-600\">“Nếu bạn không tuyển được mình, tại sao người khác phải làm điều đó?”</p>
     <p><strong>Và nếu ngày mai bạn rơi vào hội ‘thất nghiệp có bằng’ – đừng hoảng. Hãy xem đó là lúc bắt đầu hành trình học lại thứ mà trường chưa dạy: kỹ năng sống thật giữa đời thật.</strong></p>
-  `
-},
+  `,
+  },
   {
-  id: 4,
-  title: "Học một kỹ năng mới hiệu quả trong 30 ngày",
-  excerpt:
-    "Phương pháp học siêu tốc nhưng không 'mì ăn liền': Làm thế nào để não bộ bạn vừa thích nghi, vừa tiếp thu nhanh chóng một kỹ năng mới chỉ trong vòng một tháng?",
-  author: "Trịnh Nam Thuận",
-  date: "2023-12-28",
-  category: "Learning",
-  image: "/post/post_4.png",
-  slug: "hoc-ky-nang-moi-hieu-qua-trong-30-ngay",
-  content: `
+    id: 4,
+    title: "Học một kỹ năng mới hiệu quả trong 30 ngày",
+    excerpt:
+      "Phương pháp học siêu tốc nhưng không 'mì ăn liền': Làm thế nào để não bộ bạn vừa thích nghi, vừa tiếp thu nhanh chóng một kỹ năng mới chỉ trong vòng một tháng?",
+    author: "Trịnh Nam Thuận",
+    date: "2023-12-28",
+    category: "Learning",
+    image: "/post/post_4.png",
+    slug: "hoc-ky-nang-moi-hieu-qua-trong-30-ngay",
+    content: `
     <p class="mb-4">"Học nhanh, nhớ lâu, dùng được liền" – nghe thì có vẻ như quảng cáo thuốc bổ não, nhưng thực tế, bạn hoàn toàn có thể đạt được điều đó nếu áp dụng đúng cách. Trong bài viết này, chúng ta sẽ khám phá một phương pháp khoa học giúp bạn học bất kỳ kỹ năng nào một cách hiệu quả trong vòng <strong>30 ngày</strong>.</p>
 
     <h2 class="text-2xl font-bold mt-8 mb-4">Vì sao lại là 30 ngày?</h2>
@@ -242,19 +243,19 @@ export const blogPosts: Post[] = [
     <p class="mb-4">Bạn không thể kiểm soát được thị trường lao động, nhưng bạn có thể kiểm soát năng lực của mình. Mỗi kỹ năng bạn học hôm nay là một mảnh ghép giúp bạn nổi bật hơn ngày mai. Và nếu bạn nghiêm túc, hãy thử ngay thách thức 30 ngày: Chọn một kỹ năng, làm đúng theo 4 bước, và kiên trì đến ngày cuối cùng. Học không bao giờ là muộn, chỉ là bạn có bắt đầu hay không thôi.</p>
 
     <p><strong>Bạn sẽ học gì trong 30 ngày tới?</strong> Thử bắt đầu ngay sau khi đọc bài viết này.</p>
-  `
-},
+  `,
+  },
   {
-  id: 5,
-  title: "Tương Lai Của Remote Work Tại Việt Nam: Tự Do Hay Thử Thách?",
-  excerpt:
-    "Từ trào lưu tạm thời do COVID-19, remote work đang dần trở thành chuẩn mực mới. Nhưng ở Việt Nam, làm việc từ xa không chỉ là chuyện mở laptop ở quán cà phê — đó là cuộc cách mạng thầm lặng trong tư duy quản lý, văn hóa doanh nghiệp và cả kỳ vọng của nhân sự trẻ.",
-  author: "Quách Thành Long",
-  date: "2023-12-20",
-  category: "Future of Work",
-  image: "/post/post_5.png",
-  slug: "tuong-lai-remote-work-tai-viet-nam",
-  content: `
+    id: 5,
+    title: "Tương Lai Của Remote Work Tại Việt Nam: Tự Do Hay Thử Thách?",
+    excerpt:
+      "Từ trào lưu tạm thời do COVID-19, remote work đang dần trở thành chuẩn mực mới. Nhưng ở Việt Nam, làm việc từ xa không chỉ là chuyện mở laptop ở quán cà phê — đó là cuộc cách mạng thầm lặng trong tư duy quản lý, văn hóa doanh nghiệp và cả kỳ vọng của nhân sự trẻ.",
+    author: "Quách Thành Long",
+    date: "2023-12-20",
+    category: "Future of Work",
+    image: "/post/post_5.png",
+    slug: "tuong-lai-remote-work-tai-viet-nam",
+    content: `
     <p class="mb-4">Nếu như năm 2019, bạn nói với sếp mình rằng "em xin làm remote 100%", rất có thể bạn sẽ nhận về ánh nhìn hoài nghi như thể bạn vừa xin nghỉ... vĩnh viễn. Nhưng đến năm 2023, mọi thứ đã đảo chiều. Remote work không còn là giải pháp tạm thời hậu COVID, mà đang dần trở thành một <strong>chuẩn mực lao động mới</strong>.</p>
 
     <h2 class="text-2xl font-bold mt-8 mb-4">Remote Work: Trào Lưu Hay Cuộc Cách Mạng?</h2>
@@ -272,7 +273,7 @@ export const blogPosts: Post[] = [
     <h2 class="text-2xl font-bold mt-8 mb-4">Tư Duy Mới Cho Người Làm Remote: Kỹ Năng Quan Trọng Nhất Là Gì?</h2>
     <ul class="list-disc list-inside space-y-2 pl-4 mb-4">
       <li><strong>1. Tự quản lý:</strong> Không ai nhắc deadline, không có “văn phòng cảnh báo”, bạn phải là người kỷ luật với chính mình.</li>
-      <li><strong>2. Giao tiếp chủ động:</strong> Thay vì đợi hỏi, hãy báo trước. Viết rõ, nói rõ, đừng chờ hiểu nhầm để đổ lỗi.</li>
+      <li><strong>2. Giao tiếp chủ động:</strong> Thay vì đợi hỏi, hãy báo trước. Viết rõ, nói rõ, đừng chờ hiểu nhầm để đ��� lỗi.</li>
       <li><strong>3. Sử dụng công cụ số:</strong> Slack, Notion, Trello, Zoom... là “bàn làm việc mới”. Không thành thạo nghĩa là bạn đang nói chuyện với team bằng... bảng đen và phấn trắng.</li>
       <li><strong>4. Kết nối văn hóa:</strong> Remote không đồng nghĩa với lạnh lùng. Hãy xây dựng sự gắn kết bằng virtual coffee chat, check-in cảm xúc, và meme vui vẻ (vừa đủ).</li>
     </ul>
@@ -287,19 +288,20 @@ export const blogPosts: Post[] = [
     <p class="mb-4">Nếu bạn là nhân viên: Hãy xem remote như cơ hội để tự chủ và phát triển nhanh hơn. Nếu bạn là quản lý: Hãy học cách đo lường bằng kết quả, không phải bằng ghế nóng. Và nếu bạn là CEO: Có lẽ đã đến lúc KPI quan trọng nhất là: “Liệu công ty bạn có đủ tin cậy để remote hiệu quả chưa?”</p>
 
     <p class="mt-6 italic">Remote không dành cho tất cả — nhưng chắc chắn là tương lai của rất nhiều người, nếu biết cách làm chủ nó.</p>
-  `
-},
+  `,
+  },
   {
-  id: 6,
-  title: "Xây Dựng Personal Brand Trong Thời Đại Số: Khi Mỗi Con Người Là Một Thương Hiệu Sống",
-  excerpt:
-    "Bạn không cần là hot TikToker để có thương hiệu cá nhân. Nhưng nếu bạn muốn sống sót – và phát triển – trong một thị trường cạnh tranh không khoan nhượng, personal brand là điều bạn KHÔNG THỂ không có.",
-  author: "Trịnh Nam Thuận",
-  date: "2023-12-15",
-  category: "Personal Branding",
-  image: "/post/post_6.png",
-  slug: "xay-dung-personal-brand-thoi-dai-so",
-  content: `
+    id: 6,
+    title:
+      "Xây Dựng Personal Brand Trong Thời Đại Số: Khi Mỗi Con Người Là Một Thương Hiệu Sống",
+    excerpt:
+      "Bạn không cần là hot TikToker để có thương hiệu cá nhân. Nhưng nếu bạn muốn sống sót – và phát triển – trong một thị trường cạnh tranh không khoan nhượng, personal brand là điều bạn KHÔNG THỂ không có.",
+    author: "Trịnh Nam Thuận",
+    date: "2023-12-15",
+    category: "Personal Branding",
+    image: "/post/post_6.png",
+    slug: "xay-dung-personal-brand-thoi-dai-so",
+    content: `
     <p class="mb-4">Hãy tưởng tượng bạn bước vào một buổi networking: trong 5 giây đầu tiên, người đối diện đã quyết định rằng họ sẽ nghe bạn nói tiếp hay... tranh thủ đi lấy thêm bánh ngọt. Đó không phải định kiến, đó là tâm lý người. Và vì thế, <strong>personal brand — thương hiệu cá nhân — trở thành 'bộ lọc đầu tiên' mà thế giới dùng để hiểu (và nhớ) bạn</strong>.</p>
 
     <p class="mb-4">Trong thời đại kỹ thuật số, nơi LinkedIn thay danh thiếp, Google thay lời giới thiệu, và mỗi cái like/comment là một dạng "credit xã hội", thương hiệu cá nhân không còn là đặc quyền của influencer, mà là một kỹ năng sống — giống như đánh răng hay biết gửi email tử tế.</p>
@@ -335,7 +337,6 @@ export const blogPosts: Post[] = [
     <p class="mb-4"><strong>Vậy nên:</strong> Hãy thôi lo sợ "liệu mình có đủ hay ho để xây dựng thương hiệu?". Hãy bắt đầu từ việc bạn là ai, và bạn muốn được biết đến vì điều gì. Rồi thế giới sẽ đến tìm bạn — chứ không phải ngược lại.</p>
 
     <p><strong>“Trong kỷ nguyên mà mọi người đều có một ‘microphone số’ — im lặng là một lựa chọn… và thường là lựa chọn sai.”</strong></p>
-  `
-}
-,
+  `,
+  },
 ];
