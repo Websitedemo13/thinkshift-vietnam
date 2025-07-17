@@ -40,7 +40,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     .slice(0, 5); // Lấy 5 bài để không quá dài
 
   return (
-    <div className="bg-neutral-950 text-neutral-50 min-h-screen antialiased">
+    <div className="bg-background text-foreground min-h-screen antialiased">
       <div className="container mx-auto px-4 pt-24 pb-20 sm:pt-32">
         {/* Phần nội dung chính của bài viết */}
         <div className="max-w-3xl mx-auto">
@@ -53,7 +53,10 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </Link>
 
           <div>
-            <Badge variant="secondary" className="mb-4 bg-cyan-900/50 text-cyan-300 border-none w-fit">
+            <Badge
+              variant="secondary"
+              className="mb-4 bg-cyan-900/50 text-cyan-300 border-none w-fit"
+            >
               {post.category}
             </Badge>
             <h1 className="font-bold tracking-tight text-3xl md:text-5xl mb-6 text-white leading-tight">
@@ -72,7 +75,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="my-10 rounded-2xl overflow-hidden shadow-2xl shadow-cyan-900/20">
-            <img src={post.image} alt={post.title} className="w-full h-auto object-cover" />
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           <article
@@ -90,7 +97,9 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
         {/* Phần các bài viết khác với thanh cuộn ngang */}
         <section className="mt-24">
-          <h2 className="text-3xl font-bold text-center mb-12">Khám phá thêm các bài viết khác</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Khám phá thêm các bài viết khác
+          </h2>
           <div
             className="flex overflow-x-auto gap-8 pb-6 -mx-4 px-4
                                 [&::-webkit-scrollbar]:h-2
@@ -98,45 +107,49 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                                 [&::-webkit-scrollbar-track]:bg-neutral-800/50
                                 [&::-webkit-scrollbar-thumb]:rounded-full"
           >
-            {otherPosts.map((otherPost: Post) => ( // SỬA LỖI 2: Thêm kiểu 'Post'
-              <div key={otherPost.id} className="flex-shrink-0 w-80">
-                <Card className="h-full flex flex-col bg-neutral-900 border border-neutral-800 hover:border-cyan-400/50 transition-all duration-300 overflow-hidden group">
-                  <div className="relative overflow-hidden">
-                    <Link href={`/blog/${otherPost.slug}`} className="block">
-                      <img
-                        src={otherPost.image}
-                        alt={otherPost.title}
-                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </Link>
-                  </div>
-                  <CardContent className="p-4 flex flex-col flex-grow">
-                    <Badge
-                      variant="secondary"
-                      className="mb-2 bg-cyan-900/50 text-cyan-300 border-none w-fit text-xs"
-                    >
-                      {otherPost.category}
-                    </Badge>
-                    <h3 className="font-semibold text-md mb-3 text-neutral-100 flex-grow">
-                      <Link
-                        href={`/blog/${otherPost.slug}`}
-                        className="hover:text-cyan-400 transition-colors line-clamp-2"
-                      >
-                        {otherPost.title}
-                      </Link>
-                    </h3>
-                    <div className="mt-auto pt-3 border-t border-neutral-800">
-                      <Link
-                        href={`/blog/${otherPost.slug}`}
-                        className="text-sm text-cyan-400 flex items-center gap-1 hover:underline"
-                      >
-                        Đọc ngay <ArrowRight className="h-4 w-4" />
+            {otherPosts.map(
+              (
+                otherPost: Post, // SỬA LỖI 2: Thêm kiểu 'Post'
+              ) => (
+                <div key={otherPost.id} className="flex-shrink-0 w-80">
+                  <Card className="h-full flex flex-col bg-neutral-900 border border-neutral-800 hover:border-cyan-400/50 transition-all duration-300 overflow-hidden group">
+                    <div className="relative overflow-hidden">
+                      <Link href={`/blog/${otherPost.slug}`} className="block">
+                        <img
+                          src={otherPost.image}
+                          alt={otherPost.title}
+                          className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </Link>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+                    <CardContent className="p-4 flex flex-col flex-grow">
+                      <Badge
+                        variant="secondary"
+                        className="mb-2 bg-cyan-900/50 text-cyan-300 border-none w-fit text-xs"
+                      >
+                        {otherPost.category}
+                      </Badge>
+                      <h3 className="font-semibold text-md mb-3 text-neutral-100 flex-grow">
+                        <Link
+                          href={`/blog/${otherPost.slug}`}
+                          className="hover:text-cyan-400 transition-colors line-clamp-2"
+                        >
+                          {otherPost.title}
+                        </Link>
+                      </h3>
+                      <div className="mt-auto pt-3 border-t border-neutral-800">
+                        <Link
+                          href={`/blog/${otherPost.slug}`}
+                          className="text-sm text-cyan-400 flex items-center gap-1 hover:underline"
+                        >
+                          Đọc ngay <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ),
+            )}
           </div>
         </section>
       </div>
