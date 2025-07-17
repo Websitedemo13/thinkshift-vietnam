@@ -184,7 +184,7 @@ export function Header() {
                     className={cn(
                       "px-3 py-2 rounded-md transition-colors duration-200",
                       pathname === item.href
-                        ? "text-cyan-400 font-semibold bg-cyan-400/10"
+                        ? "text-blue-accent font-semibold bg-blue-accent/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/10",
                     )}
                   >
