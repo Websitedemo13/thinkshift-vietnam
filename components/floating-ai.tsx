@@ -19,8 +19,8 @@ export default function FloatingAI() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     createMessage(
-      "Xin chào 👋! Tôi là Thinking Bot – trợ lý tư duy từ ThinkShift Vietnam. Bạn muốn khám phá điều gì hôm nay? 🎓",
-      false
+      "Xin chào 👋! Tôi là ThinkShift AI – trợ lý hướng nghiệp thông minh của ThinkShift Vietnam. Tôi có thể giúp bạn:\n\n🎯 Tư vấn định hướng nghề nghiệp\n📚 Gợi ý lộ trình học tập\n💡 Giải đáp thắc mắc về kỹ năng\n���� Kết nối với mentor phù hợp\n\nBạn cần hỗ trợ gì hôm nay?",
+      false,
     ),
   ]);
   const [input, setInput] = useState("");
@@ -50,16 +50,16 @@ export default function FloatingAI() {
   return (
     <>
       {/* Floating button */}
-      
-<button
-  onClick={() => setOpen(!open)}
-  className="fixed bottom-5 right-5 z-50 p-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 text-white shadow-xl hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in cursor-pointer group"
->
-  <Bot
-    size={28}
-    className="transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]"
-  />
-</button>
+
+      <button
+        onClick={() => setOpen(!open)}
+        className="fixed bottom-5 right-5 z-50 p-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 text-white shadow-xl hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in cursor-pointer group"
+      >
+        <Bot
+          size={28}
+          className="transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]"
+        />
+      </button>
 
       {/* Chat Box */}
       <AnimatePresence>
