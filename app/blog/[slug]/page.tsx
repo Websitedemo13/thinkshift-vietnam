@@ -6,8 +6,7 @@ import { ArrowLeft, Calendar, User, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
-// SỬA LỖI 1: Dùng đường dẫn tương đối để đảm bảo TypeScript tìm thấy module.
-// SỬA LỖI 2: Import kiểu 'Post' để sử dụng trong code, tránh lỗi 'any'.
+// Import kiểu 'Post' để sử dụng trong code
 import { blogPosts, type Post } from "@/data/posts";
 
 /**
@@ -17,11 +16,11 @@ import { blogPosts, type Post } from "@/data/posts";
  * @returns The post object or undefined if not found.
  */
 function getPostBySlug(slug: string): Post | undefined {
-  return blogPosts.find((post: Post) => post.slug === slug); // SỬA LỖI 2: Thêm kiểu 'Post'
+  return blogPosts.find((post: Post) => post.slug === slug);
 }
 
 /**
- * Đây là component trang chi tiết bài viết (cái "khuôn đúc").
+ * Đây là component trang chi tiết bài viết.
  * Nó là một Server Component, render ở phía server.
  */
 export default function PostPage({ params }: { params: { slug: string } }) {
@@ -36,7 +35,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   // Lọc ra các bài viết khác, loại trừ bài hiện tại
   const otherPosts = blogPosts
-    .filter((p: Post) => p.id !== post.id) // SỬA LỖI 2: Thêm kiểu 'Post'
+    .filter((p: Post) => p.id !== post.id)
     .slice(0, 5); // Lấy 5 bài để không quá dài
 
   return (
@@ -74,7 +73,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          <div className="my-10 rounded-2xl overflow-hidden shadow-2xl shadow-cyan-900/20">
+          <div className="my-10 rounded-2xl overflow-hidden shadow-2xl shadow-blue-accent/10">
             <img
               src={post.image}
               alt={post.title}
@@ -83,73 +82,69 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </div>
 
           <article
-            className="prose prose-invert prose-lg max-w-none 
-                               prose-p:text-neutral-300 
-                               prose-headings:text-white 
-                               prose-strong:text-cyan-400
-                               prose-a:text-cyan-400 hover:prose-a:text-cyan-300
-                               prose-ul:text-neutral-300
-                               prose-ol:text-neutral-300
-                               prose-li:marker:text-cyan-400"
+            className="prose prose-neutral prose-lg max-w-none dark:prose-invert
+                               prose-p:text-muted-foreground 
+                               prose-headings:text-foreground 
+                               prose-strong:text-blue-accent
+                               prose-a:text-blue-accent hover:prose-a:text-blue-accent/80
+                               prose-ul:text-muted-foreground
+                               prose-ol:text-muted-foreground
+                               prose-li:marker:text-blue-accent"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
 
         {/* Phần các bài viết khác với thanh cuộn ngang */}
         <section className="mt-24">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
             Khám phá thêm các bài viết khác
           </h2>
           <div
             className="flex overflow-x-auto gap-8 pb-6 -mx-4 px-4
                                 [&::-webkit-scrollbar]:h-2
-                                [&::-webkit-scrollbar-thumb]:bg-neutral-700
-                                [&::-webkit-scrollbar-track]:bg-neutral-800/50
+                                [&::-webkit-scrollbar-thumb]:bg-muted-foreground
+                                [&::-webkit-scrollbar-track]:bg-muted/50
                                 [&::-webkit-scrollbar-thumb]:rounded-full"
           >
-            {otherPosts.map(
-              (
-                otherPost: Post, // SỬA LỖI 2: Thêm kiểu 'Post'
-              ) => (
-                <div key={otherPost.id} className="flex-shrink-0 w-80">
-                  <Card className="h-full flex flex-col bg-neutral-900 border border-neutral-800 hover:border-cyan-400/50 transition-all duration-300 overflow-hidden group">
-                    <div className="relative overflow-hidden">
-                      <Link href={`/blog/${otherPost.slug}`} className="block">
-                        <img
-                          src={otherPost.image}
-                          alt={otherPost.title}
-                          className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+            {otherPosts.map((otherPost: Post) => (
+              <div key={otherPost.id} className="flex-shrink-0 w-80">
+                <Card className="h-full flex flex-col bg-card border border-border hover:border-blue-accent/50 transition-all duration-300 overflow-hidden group">
+                  <div className="relative overflow-hidden">
+                    <Link href={`/blog/${otherPost.slug}`} className="block">
+                      <img
+                        src={otherPost.image}
+                        alt={otherPost.title}
+                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </Link>
+                  </div>
+                  <CardContent className="p-4 flex flex-col flex-grow">
+                    <Badge
+                      variant="secondary"
+                      className="mb-2 bg-blue-accent/10 text-blue-accent border-none w-fit text-xs"
+                    >
+                      {otherPost.category}
+                    </Badge>
+                    <h3 className="font-semibold text-md mb-3 text-foreground flex-grow">
+                      <Link
+                        href={`/blog/${otherPost.slug}`}
+                        className="hover:text-blue-accent transition-colors line-clamp-2"
+                      >
+                        {otherPost.title}
+                      </Link>
+                    </h3>
+                    <div className="mt-auto pt-3 border-t border-border">
+                      <Link
+                        href={`/blog/${otherPost.slug}`}
+                        className="text-sm text-blue-accent flex items-center gap-1 hover:underline"
+                      >
+                        Đọc ngay <ArrowRight className="h-4 w-4" />
                       </Link>
                     </div>
-                    <CardContent className="p-4 flex flex-col flex-grow">
-                      <Badge
-                        variant="secondary"
-                        className="mb-2 bg-cyan-900/50 text-cyan-300 border-none w-fit text-xs"
-                      >
-                        {otherPost.category}
-                      </Badge>
-                      <h3 className="font-semibold text-md mb-3 text-neutral-100 flex-grow">
-                        <Link
-                          href={`/blog/${otherPost.slug}`}
-                          className="hover:text-cyan-400 transition-colors line-clamp-2"
-                        >
-                          {otherPost.title}
-                        </Link>
-                      </h3>
-                      <div className="mt-auto pt-3 border-t border-neutral-800">
-                        <Link
-                          href={`/blog/${otherPost.slug}`}
-                          className="text-sm text-cyan-400 flex items-center gap-1 hover:underline"
-                        >
-                          Đọc ngay <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ),
-            )}
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
           </div>
         </section>
       </div>
