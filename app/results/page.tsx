@@ -697,6 +697,28 @@ export default function ResultsPage() {
               </Card>
             </div>
           </TabsContent>
+
+          {/* PDF Export Tab */}
+          <TabsContent value="export" className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <PDFExport
+                userProfile={{
+                  name: analysisResults.user.name,
+                  email: "user@example.com",
+                  assessmentDate: analysisResults.user.completedAt,
+                  totalScore: analysisResults.user.totalScore,
+                  level: "Xuất sắc",
+                }}
+                careerRecommendations={analysisResults.careerRecommendations}
+                skillAnalysis={analysisResults.skillAnalysis}
+                learningPath={analysisResults.learningPath}
+              />
+            </motion.div>
+          </TabsContent>
         </Tabs>
 
         {/* Action Buttons */}
