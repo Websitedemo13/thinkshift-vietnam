@@ -169,7 +169,7 @@ export function Header() {
                 size="icon"
                 className="hover:bg-accent/10"
               >
-                <Menu className="h-6 w-6 text-cyan-400" />
+                <Menu className="h-6 w-6 text-blue-accent" />
               </Button>
             </SheetTrigger>
             <SheetContent
