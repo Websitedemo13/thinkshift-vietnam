@@ -210,7 +210,7 @@ export function Header() {
 
         <div
           className={cn(
-            "absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-400",
+            "absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-navy via-blue-accent to-navy",
             "transition-opacity duration-500",
             isScrolled ? "opacity-[.85] dark:opacity-90" : "opacity-0",
           )}
