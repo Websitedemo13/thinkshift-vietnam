@@ -52,6 +52,12 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        /* ThinkShift Vietnam Custom Colors */
+        navy: "hsl(var(--navy))" /* #0A3D62 */,
+        "blue-accent": "hsl(var(--blue-accent))" /* #1B9CFC */,
+        "text-dark": "hsl(var(--text-dark))" /* #222831 */,
+        "gray-light": "hsl(var(--gray-light))" /* #F9F9F9 */,
       },
       borderRadius: {
         lg: "var(--radius)",
