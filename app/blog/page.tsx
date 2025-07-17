@@ -175,7 +175,7 @@ export default function BlogPage() {
                       }}
                       className="group"
                     >
-                      <Card className="h-full flex flex-col bg-neutral-900 border border-neutral-800 hover:border-cyan-400/50 transition-all duration-300 overflow-hidden shadow-md hover:shadow-cyan-900/20">
+                      <Card className="h-full flex flex-col bg-card border border-border hover:border-blue-accent/50 transition-all duration-300 overflow-hidden shadow-md hover:shadow-blue-accent/10">
                         <div className="relative overflow-hidden">
                           <Link href={`/blog/${post.slug}`} className="block">
                             <img
@@ -184,30 +184,30 @@ export default function BlogPage() {
                               className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           </Link>
-                          <Badge className="absolute top-4 left-4 bg-neutral-950/70 backdrop-blur-sm text-cyan-300 border border-cyan-400/20">
+                          <Badge className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm text-blue-accent border border-blue-accent/20">
                             {post.category}
                           </Badge>
                         </div>
                         <CardContent className="p-6 flex flex-col flex-grow">
-                          <h3 className="font-semibold text-xl mb-3 text-neutral-100">
+                          <h3 className="font-semibold text-xl mb-3 text-foreground">
                             <Link
                               href={`/blog/${post.slug}`}
-                              className="hover:text-cyan-400 transition-colors line-clamp-2"
+                              className="hover:text-blue-accent transition-colors line-clamp-2"
                             >
                               {post.title}
                             </Link>
                           </h3>
-                          <p className="text-neutral-400 mb-4 line-clamp-3 flex-grow">
+                          <p className="text-muted-foreground mb-4 line-clamp-3 flex-grow">
                             {post.excerpt}
                           </p>
-                          <div className="flex items-center justify-between text-sm text-neutral-500 mt-auto pt-4 border-t border-neutral-800">
+                          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-4 border-t border-border">
                             <div className="flex items-center gap-2">
                               <User className="h-4 w-4" />
                               {post.author}
                             </div>
                             <Link
                               href={`/blog/${post.slug}`}
-                              className="text-cyan-400 flex items-center gap-1 hover:underline"
+                              className="text-blue-accent flex items-center gap-1 hover:underline"
                             >
                               Đọc thêm <ArrowRight className="h-4 w-4" />
                             </Link>
