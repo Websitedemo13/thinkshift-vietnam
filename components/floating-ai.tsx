@@ -105,7 +105,7 @@ export default function FloatingAI() {
 
             <div className="p-3 border-t flex gap-2 items-center">
               <Input
-                placeholder="Hỏi gì cũng được, đừng ngại..."
+                placeholder="Ví dụ: Tôi nên học gì để trở thành developer?"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
