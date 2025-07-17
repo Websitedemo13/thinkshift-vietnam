@@ -31,7 +31,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, BarChart, Bar, PieChart as RechartsPieChart, Cell } from "recharts"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, BarChart, Bar, PieChart as RechartsPieChart, Pie, Cell } from "recharts"
 
 // Mock AI Analysis Results
 const analysisResults = {
@@ -101,7 +101,7 @@ const analysisResults = {
       { trait: "Creativity", score: 75, description: "Có khả năng tư duy sáng tạo và đưa ra giải pháp mới" },
       { trait: "Persistence", score: 85, description: "Kiên trì và không bỏ cuộc khi gặp khó khăn" },
       { trait: "Collaboration", score: 60, description: "Cần cải thiện kỹ năng làm việc nhóm" },
-      { trait: "Adaptability", score: 80, description: "Thích ứng tốt với thay đổi và môi trường mới" }
+      { trait: "Adaptability", score: 80, description: "Thích ứng tốt với thay đổi v�� môi trường mới" }
     ]
   },
   learningPath: {
