@@ -80,22 +80,22 @@ export function Header() {
             whileHover={{ scale: 1.05, rotate: -3 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
           >
-            <Image
-              src="/logo/image.png"
-              alt="ThinkShift Vietnam Logo"
-              width={56}
-              height={56}
-              className="rounded-lg transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
-            />
+            <div className="w-14 h-14 bg-gradient-to-br from-navy to-blue-accent rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-xl">TS</span>
+            </div>
           </motion.div>
-          <span className="font-bold text-2xl hidden sm:inline-block">
-            <span
-              className={cn("transition-colors duration-300", textColorClass)}
-            >
-              Think
+          <div className="hidden sm:flex flex-col">
+            <span className="font-bold text-xl leading-none">
+              <span
+                className={cn("transition-colors duration-300", textColorClass)}
+              >
+                ThinkShift
+              </span>
             </span>
-            <span className="text-cyan-400">Shift</span>
-          </span>
+            <span className="text-sm text-blue-accent font-medium">
+              Vietnam
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
