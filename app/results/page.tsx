@@ -271,11 +271,12 @@ export default function ResultsPage() {
           onValueChange={setActiveTab}
           className="space-y-6"
         >
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="overview">Tổng quan</TabsTrigger>
             <TabsTrigger value="career">Nghề nghiệp</TabsTrigger>
             <TabsTrigger value="skills">Kỹ năng</TabsTrigger>
             <TabsTrigger value="roadmap">Lộ trình</TabsTrigger>
+            <TabsTrigger value="export">Xuất PDF</TabsTrigger>
           </TabsList>
 
           {/* Overview Tab */}
