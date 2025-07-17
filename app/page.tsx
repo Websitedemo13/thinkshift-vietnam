@@ -88,7 +88,7 @@ export default function HomePage() {
       icon: Users,
       title: "Giao tiếp & Dịch chuyển Ngữ cảnh",
       description:
-        "Năng lực 'dịch thuật' giữa các thế giới: từ Business sang Tech, từ Tech sang ngôn ngữ của người dùng cu��i.",
+        "Năng lực 'dịch thuật' giữa các thế giới: từ Business sang Tech, từ Tech sang ngôn ngữ của người dùng cuối.",
     },
     {
       icon: Blocks,
@@ -263,7 +263,7 @@ export default function HomePage() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 md:py-28 px-4 bg-neutral-900">
+      <section className="py-20 md:py-28 px-4 bg-gray-light dark:bg-navy/10">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -272,12 +272,12 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="font-bold tracking-tight text-white text-3xl md:text-4xl mb-4">
-              Không phải "Học cái gì?", mà là "Học như thế nào?"
+            <h2 className="font-bold tracking-tight text-foreground text-3xl md:text-4xl mb-4">
+              Giải pháp ThinkShift Vietnam
             </h2>
-            <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-              ThinkShift đề xuất Mô hình 3 Chân kiềng - bộ năng lực cốt lõi giúp
-              bạn tự điều hướng sự nghiệp trong bất kỳ môi trường nào.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Hệ thống AI tiên tiến giúp bạn khám phá năng lực, phát triển kỹ
+              năng và kết nối cộng đồng học tập.
             </p>
           </motion.div>
           <motion.div
@@ -294,14 +294,14 @@ export default function HomePage() {
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full bg-neutral-800/50 border border-neutral-700 text-neutral-100 rounded-2xl shadow-lg hover:border-cyan-400/50 transition-colors duration-300 group p-8 text-center">
-                  <div className="w-20 h-20 bg-cyan-900/50 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    <pillar.icon className="h-10 w-10 text-cyan-400" />
+                <Card className="h-full bg-card border border-border text-foreground rounded-2xl shadow-lg hover:border-blue-accent/50 transition-colors duration-300 group p-8 text-center">
+                  <div className="w-20 h-20 bg-blue-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    <pillar.icon className="h-10 w-10 text-blue-accent" />
                   </div>
                   <h3 className="font-semibold text-2xl mb-4">
                     {pillar.title}
                   </h3>
-                  <p className="text-base text-neutral-400 leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {pillar.description}
                   </p>
                 </Card>
