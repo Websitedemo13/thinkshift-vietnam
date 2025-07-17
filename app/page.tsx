@@ -116,8 +116,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground pt-16 antialiased">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-40 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-neutral-950 via-cyan-950/40 to-neutral-950"></div>
+      <section className="relative py-24 md:py-40 px-4 overflow-hidden bg-gradient-to-br from-navy/5 via-blue-accent/5 to-navy/10 dark:from-navy/20 dark:via-blue-accent/10 dark:to-navy/30">
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-blue-accent/5 to-transparent"></div>
         <div className="container mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -126,29 +126,39 @@ export default function HomePage() {
           >
             <Badge
               variant="outline"
-              className="mb-6 border-cyan-400/50 text-cyan-300 bg-cyan-900/20 py-1 px-4"
+              className="mb-6 border-blue-accent/50 text-blue-accent bg-blue-accent/10 py-1 px-4"
             >
-              Nơi Tư Duy Gặp Gỡ Hành Động
+              Nền tảng Hướng nghiệp AI cho Việt Nam
             </Badge>
-            <h1 className="font-extrabold tracking-tight text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">
+            <h1 className="font-extrabold tracking-tight text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">
               Tư Duy Chuyển Dịch.
               <br />
-              <span className="text-cyan-400">Năng Lực Bất Biến.</span>
+              <span className="text-blue-accent">Năng Lực Bất Biến.</span>
             </h1>
-            <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto mb-12">
-              Trong một thế giới mà AI có thể viết code, giá trị của bạn không
-              nằm ở những gì bạn biết. Nó nằm ở cách bạn tư duy.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
+              Khám phá ngành nghề phù hợp, phát triển kỹ năng và kết nối cộng
+              đồng học tập với sức mạnh của AI.
             </p>
-            <Button
-              size="lg"
-              asChild
-              className="text-base sm:text-lg px-8 py-6 rounded-full bg-cyan-500 hover:bg-cyan-600 text-neutral-900 font-bold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <Link href="/assessment">
-                Khám phá Năng lực của Bạn
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                asChild
+                className="text-base sm:text-lg px-8 py-6 rounded-full bg-blue-accent hover:bg-blue-accent/90 text-white font-bold shadow-lg shadow-blue-accent/20 hover:shadow-xl hover:shadow-blue-accent/30 transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <Link href="/assessment">
+                  Bắt đầu Đánh giá AI
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="text-base sm:text-lg px-8 py-6 rounded-full border-navy/20 text-navy hover:bg-navy/5 transition-all duration-300"
+              >
+                <Link href="/dashboard">Xem Dashboard</Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
