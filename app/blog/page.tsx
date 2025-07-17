@@ -121,7 +121,7 @@ export default function BlogPage() {
                     className="mb-12 group"
                   >
                     <Link href={`/blog/${featuredPost.slug}`} passHref>
-                      <Card className="grid md:grid-cols-2 overflow-hidden bg-neutral-900 border-neutral-800 hover:border-cyan-400/50 transition-colors duration-300 shadow-lg">
+                      <Card className="grid md:grid-cols-2 overflow-hidden bg-card border-border hover:border-blue-accent/50 transition-colors duration-300 shadow-lg">
                         <div className="relative min-h-[250px] md:h-auto overflow-hidden">
                           <img
                             src={featuredPost.image}
@@ -133,17 +133,17 @@ export default function BlogPage() {
                         <div className="p-8 flex flex-col justify-center">
                           <Badge
                             variant="secondary"
-                            className="mb-4 bg-cyan-900/50 text-cyan-300 border-none w-fit"
+                            className="mb-4 bg-blue-accent/10 text-blue-accent border-none w-fit"
                           >
                             Bài viết nổi bật
                           </Badge>
-                          <h2 className="font-bold text-2xl md:text-3xl mb-4 text-neutral-100 group-hover:text-cyan-400 transition-colors">
+                          <h2 className="font-bold text-2xl md:text-3xl mb-4 text-foreground group-hover:text-blue-accent transition-colors">
                             {featuredPost.title}
                           </h2>
-                          <p className="text-neutral-400 mb-6 line-clamp-3">
+                          <p className="text-muted-foreground mb-6 line-clamp-3">
                             {featuredPost.excerpt}
                           </p>
-                          <div className="flex items-center justify-between text-sm text-neutral-500 mt-auto">
+                          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto">
                             <div className="flex items-center gap-2">
                               <User className="h-4 w-4" />
                               {featuredPost.author}
