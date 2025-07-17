@@ -145,7 +145,7 @@ export function Header() {
               asChild
               className={cn(
                 !isScrolled &&
-                  "bg-cyan-400/10 border-cyan-300/20 text-white hover:bg-cyan-400/20",
+                  "bg-blue-accent/10 border-blue-accent/20 text-white hover:bg-blue-accent/20",
               )}
             >
               <Link href="/login">Đăng nhập</Link>
