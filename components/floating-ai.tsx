@@ -19,7 +19,7 @@ export default function FloatingAI() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     createMessage(
-      "Xin chào 👋! Tôi là ThinkShift AI – trợ lý hướng nghiệp thông minh của ThinkShift Vietnam. Tôi có thể giúp bạn:\n\n🎯 Tư vấn định hướng nghề nghiệp\n📚 Gợi ý lộ trình học tập\n💡 Giải đáp thắc mắc về kỹ năng\n���� Kết nối với mentor phù hợp\n\nBạn cần hỗ trợ gì hôm nay?",
+      "Xin chào 👋! Tôi là ThinkShift AI – trợ lý hướng nghiệp thông minh của ThinkShift Vietnam. Tôi có thể giúp bạn:\n\n🎯 Tư vấn định hướng nghề nghiệp\n📚 Gợi ý lộ trình học tập\n💡 Giải đáp thắc mắc về kỹ năng\n🤝 Kết nối với mentor phù hợp\n\nBạn cần hỗ trợ gì hôm nay?",
       false,
     ),
   ]);
@@ -53,7 +53,7 @@ export default function FloatingAI() {
 
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-5 right-5 z-50 p-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 text-white shadow-xl hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in cursor-pointer group"
+        className="fixed bottom-5 right-5 z-50 p-4 rounded-full bg-gradient-to-tr from-navy to-blue-accent text-white shadow-xl hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in cursor-pointer group"
       >
         <Bot
           size={28}
