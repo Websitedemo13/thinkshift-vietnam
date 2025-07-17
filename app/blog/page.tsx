@@ -97,8 +97,8 @@ export default function BlogPage() {
                 className={`transition-all duration-200 rounded-full
                   ${
                     selectedCategory === category
-                      ? "bg-cyan-400 text-neutral-900 font-semibold hover:bg-cyan-300"
-                      : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700 hover:text-white"
+                      ? "bg-blue-accent text-white font-semibold hover:bg-blue-accent/90"
+                      : "bg-card border-border text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
               >
                 {category}
