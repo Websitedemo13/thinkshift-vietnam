@@ -57,7 +57,7 @@ export default function HomePage() {
     {
       title: "Lạm phát Bằng cấp",
       description:
-        "Tấm bằng kh��ng còn là 'tấm vé vàng'. Giá trị thực sự nằm ở năng lực giải quyết vấn đề, không phải điểm số.",
+        "Tấm bằng không còn là 'tấm vé vàng'. Giá trị thực sự nằm ở năng lực giải quyết vấn đề, không phải điểm số.",
       image: "/page/post1.png",
       icon: GraduationCap,
     },
@@ -88,7 +88,7 @@ export default function HomePage() {
       icon: Users,
       title: "Giao tiếp & Dịch chuyển Ngữ cảnh",
       description:
-        "Năng lực 'dịch thuật' giữa các thế giới: từ Business sang Tech, từ Tech sang ngôn ngữ của người dùng cuối.",
+        "Năng lực 'dịch thuật' giữa các thế giới: từ Business sang Tech, từ Tech sang ngôn ngữ của người dùng cu��i.",
     },
     {
       icon: Blocks,
@@ -212,7 +212,7 @@ export default function HomePage() {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 md:py-28 px-4 bg-neutral-950">
+      <section className="py-20 md:py-28 px-4 bg-background">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,10 +221,10 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="font-bold tracking-tight text-white text-3xl md:text-4xl mb-4">
-              Nghịch lý của một thế hệ
+            <h2 className="font-bold tracking-tight text-foreground text-3xl md:text-4xl mb-4">
+              Thách thức của thế hệ trẻ Việt Nam
             </h2>
-            <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Chúng ta đang ở giữa một "cơn bão hoàn hảo" – nơi 3 làn sóng va
               vào nhau.
             </p>
@@ -238,7 +238,7 @@ export default function HomePage() {
           >
             {problemCards.map((card, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full bg-neutral-900 border border-neutral-800 text-neutral-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 transform hover:-translate-y-2 group">
+                <Card className="h-full bg-card border border-border text-foreground rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-accent/10 transition-all duration-300 transform hover:-translate-y-2 group">
                   <div className="overflow-hidden">
                     <img
                       src={card.image || "/placeholder.svg"}
@@ -247,11 +247,11 @@ export default function HomePage() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-cyan-900/50 text-cyan-400 rounded-lg flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 bg-blue-accent/10 text-blue-accent rounded-lg flex items-center justify-center mb-4">
                       <card.icon className="h-6 w-6" />
                     </div>
                     <h3 className="font-semibold text-xl mb-3">{card.title}</h3>
-                    <p className="text-base text-neutral-400 leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {card.description}
                     </p>
                   </CardContent>
