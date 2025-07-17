@@ -91,8 +91,8 @@ export default function FloatingAI() {
                     <div
                       className={`max-w-[80%] px-4 py-2 rounded-xl text-sm whitespace-pre-line shadow-sm ${
                         msg.isUser
-                          ? "bg-blue-500 text-white rounded-br-none"
-                          : "bg-muted text-foreground rounded-bl-none"
+                          ? "bg-blue-accent text-white rounded-br-none"
+                          : "bg-muted text-foreground rounded-bl-none border border-border"
                       }`}
                     >
                       {msg.content}
