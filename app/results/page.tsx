@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PDFExport } from "@/components/pdf-export";
 
 // Mock AI Analysis Results
 const analysisResults = {
