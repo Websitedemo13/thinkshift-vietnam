@@ -63,11 +63,11 @@ export default function BlogPage() {
           className="text-center mb-16"
         >
           <h1 className="font-bold tracking-tighter text-4xl md:text-6xl mb-4">
-            Think<span className="text-cyan-400">Shift</span> Insights
+            ThinkShift <span className="text-blue-accent">Insights</span>
           </h1>
-          <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            Hành trình tri thức của bạn bắt đầu tại đây. Khám phá những phân
-            tích sâu sắc định hình tương lai.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Khám phá kiến thức, chia sẻ kinh nghiệm và kết nối cộng đồng học tập
+            AI & Công nghệ tại Việt Nam.
           </p>
         </motion.div>
 
