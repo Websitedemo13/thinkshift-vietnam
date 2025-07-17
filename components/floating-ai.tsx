@@ -71,8 +71,8 @@ export default function FloatingAI() {
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             className="fixed bottom-20 right-4 w-[90vw] sm:w-[400px] max-h-[80vh] flex flex-col shadow-2xl border rounded-2xl bg-background z-50"
           >
-            <div className="bg-[#0f172a] text-white px-4 py-3 rounded-t-2xl text-sm font-medium flex items-center gap-2">
-              <Bot size={18} /> ThinkBot – Trợ lý học thuật ✨
+            <div className="bg-gradient-to-r from-navy to-blue-accent text-white px-4 py-3 rounded-t-2xl text-sm font-medium flex items-center gap-2">
+              <Bot size={18} /> ThinkShift AI – Trợ lý hướng nghiệp ✨
             </div>
 
             <ScrollArea className="h-[400px] p-4 space-y-4">
