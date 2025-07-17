@@ -46,7 +46,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-blue-accent hover:text-blue-accent/80 transition-colors mb-8"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Trở về trang Blog</span>
@@ -55,14 +55,14 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <div>
             <Badge
               variant="secondary"
-              className="mb-4 bg-cyan-900/50 text-cyan-300 border-none w-fit"
+              className="mb-4 bg-blue-accent/10 text-blue-accent border-none w-fit"
             >
               {post.category}
             </Badge>
-            <h1 className="font-bold tracking-tight text-3xl md:text-5xl mb-6 text-white leading-tight">
+            <h1 className="font-bold tracking-tight text-3xl md:text-5xl mb-6 text-foreground leading-tight">
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-neutral-400">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
                 {post.author}
