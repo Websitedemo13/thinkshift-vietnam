@@ -122,7 +122,7 @@ export function Header() {
                   {item.label}
                   {(isActive || hoveredItem === item.href) && (
                     <motion.div
-                      className="absolute inset-0 rounded-full bg-cyan-400/10 dark:bg-cyan-300/10"
+                      className="absolute inset-0 rounded-full bg-blue-accent/10 dark:bg-blue-accent/20"
                       layoutId="hover-capsule"
                       transition={{
                         type: "spring",
